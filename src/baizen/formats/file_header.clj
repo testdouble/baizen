@@ -4,10 +4,13 @@
              :creation-date :creation-time :file-id
              :record-length :block-size :version])
 
+(defn- prepare [line]
+  (assoc line
+    (.indexOf fields :record-name) "File Header"
+    (.indexOf fields :version) "2"))
+
 (defn file-header
   "The file header marks the beginning of a file."
   [line]
-  (let [line (assoc line
-               0 "File Header"
-               8 "2")]
+  (let [line (prepare line)]
     (zipmap fields line)))
