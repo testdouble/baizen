@@ -1,16 +1,13 @@
 (ns baizen.formats.file-header)
 
+(def fields [:record-name :sender-id :receiver-id
+             :creation-date :creation-time :file-id
+             :record-length :block-size :version])
+
 (defn file-header
   "The file header marks the beginning of a file."
   [line]
-  {:record-name "File Header"
-   :sender-id (second line)
-   :receiver-id (get line 2)
-   :creation-date (get line 3)
-   :creation-time (get line 4)
-   :file-id (get line 5)
-   :record-length (get line 6)
-   :block-size (get line 7)
-   :version "2"})
-
-
+  (let [line (assoc line
+               0 "File Header"
+               8 "2")]
+    (zipmap fields line)))
