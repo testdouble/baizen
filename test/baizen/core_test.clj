@@ -6,9 +6,4 @@
 
 (deftest parse-test
   (testing "reading in a file returns a clojure.lang.LazySeq"
-    (is (= clojure.lang.LazySeq (class (parse test-file)))))
-
-  (testing "first line of BAI file"
-    (is (= "File Header"
-           (get (first (parse test-file))
-                :record-name)))))
+    (is (= clojure.lang.LazySeq (class (parse test-file))))))
