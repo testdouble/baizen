@@ -9,10 +9,13 @@
 (defn fields-index [key]
   (.indexOf fields key))
 
+(defn ?assoc [m k v]
+  (assoc m k (or (get m k) v)))
+
 (defn- prepare [line]
   (-> line
       (assoc (fields-index :record-name) "Group Header")
-      (assoc (fields-index :currency-code) (or (get line 6) "USD"))
+      (?assoc (fields-index :currency-code) "USD")
       (assoc (fields-index :as-of-date-modifier) (str (first (get line (fields-index :as-of-date-modifier)))))))
 
 (defn group-header
