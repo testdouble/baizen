@@ -9,16 +9,16 @@
 (deftest group-header-test
   (testing "group header fields"
     (let [group-header (dissect (GroupHeader. group-header-line))]
-      (is (= "Group Header" (get group-header :record-name)))
-      (is (= "031001234" (get group-header :receiver-id)))
-      (is (= "122099999" (get group-header :originator-id)))
-      (is (= "1" (get group-header :group-status)))
-      (is (= "040620" (get group-header :as-of-date)))
-      (is (= "2359" (get group-header :as-of-time)))
-      (is (= "GBP" (get group-header :currency-code)))
-      (is (= "2" (get group-header :as-of-date-modifier)))))
+      (is (= "Group Header" (:record-name group-header)))
+      (is (= "031001234" (:receiver-id group-header)))
+      (is (= "122099999" (:originator-id group-header)))
+      (is (= "1" (:group-status group-header)))
+      (is (= "040620" (:as-of-date group-header)))
+      (is (= "2359" (:as-of-time group-header)))
+      (is (= "GBP" (:currency-code group-header)))
+      (is (= "2" (:as-of-date-modifier group-header)))))
 
   (testing "default currency code is USD"
     (let [group-header-line (assoc group-header-line 6 nil)
           group-header (dissect (GroupHeader. group-header-line))]
-      (is (= "USD" (get group-header :currency-code))))))
+      (is (= "USD" (:currency-code group-header))))))

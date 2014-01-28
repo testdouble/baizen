@@ -9,12 +9,12 @@
 (deftest file-header-test
   (testing "file header fields"
     (let [file-header (dissect (FileHeader. file-header-line))]
-      (is (= "File Header" (get file-header :record-name)))
-      (is (= "021000018" (get file-header :sender-id)))
-      (is (= "55287" (get file-header :receiver-id)))
-      (is (= "051025" (get file-header :creation-date)))
-      (is (= "0600" (get file-header :creation-time)))
-      (is (= "1" (get file-header :file-id)))
-      (is (= "80" (get file-header :record-length)))
-      (is (= "080" (get file-header :block-size)))
-      (is (= "2" (get file-header :version))))))
+      (is (= "File Header" (:record-name file-header)))
+      (is (= "021000018" (:sender-id file-header)))
+      (is (= "55287" (:receiver-id file-header)))
+      (is (= "051025" (:creation-date file-header)))
+      (is (= "0600" (:creation-time file-header)))
+      (is (= "1" (:file-id file-header)))
+      (is (= "80" (:record-length file-header)))
+      (is (= "080" (:block-size file-header)))
+      (is (= "2" (:version file-header))))))
