@@ -6,8 +6,11 @@
 (defprotocol BaiFormat
   "a clojure protocol for describing a BAI record format"
   (fields [f])
-  (prepare [f line])
-  (dissect [f]))
+  (prepare [f line]))
 
 (defn index-of [this key]
   (.indexOf (fields this) key))
+
+(defn dissect [this]
+  (let [line (prepare this (:line this))]
+    (zipmap (fields this) line)))

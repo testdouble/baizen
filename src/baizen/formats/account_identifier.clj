@@ -7,8 +7,4 @@
 
   (prepare [this line]
     (-> line
-        (assoc (index-of this :record-name) "Account Identifier and Summary Status")))
-
-  (dissect [this]
-    (let [line (prepare this line)]
-      (zipmap (fields this) line))))
+        (assoc (index-of this :record-name) "Account Identifier and Summary Status"))))

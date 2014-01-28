@@ -11,8 +11,4 @@
   (prepare [this line]
     (-> line
         (assoc (index-of this :record-name) "File Header")
-        (assoc (index-of this :version) "2")))
-
-  (dissect [this]
-    (let [line (prepare this line)]
-      (zipmap (fields this) line))))
+        (assoc (index-of this :version) "2"))))
