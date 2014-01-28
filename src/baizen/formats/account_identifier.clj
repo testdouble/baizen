@@ -3,7 +3,8 @@
 
 (defrecord AccountIdentifier [line]
   BaiFormat
-  (fields [_] [:record-name])
+  (fields [_] [:record-name :customer-account-number :currency-code
+               :type-code :amount :item-count :funds-type])
 
   (prepare [this line]
     (-> line
