@@ -12,4 +12,4 @@
     (-> line
         (assoc (index-of this :record-name) "Group Header")
         (?assoc (index-of this :currency-code) "USD")
-        (assoc (index-of this :as-of-date-modifier) (str (first (get line (index-of this :as-of-date-modifier))))))))
+        (assoc (index-of this :as-of-date-modifier) (drop-slash (get line (index-of this :as-of-date-modifier)))))))

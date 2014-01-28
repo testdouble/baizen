@@ -16,7 +16,7 @@
              (get dissected :record-name)))))
 
   (testing "account-identifier"
-    (let [account-identifier-line ["03" "0975312468" nil "010" "500000" nil nil "190" "70000000" "4" "0/"]
+    (let [account-identifier-line ["03" "0975312468" nil "010" "500000" nil "0/"]
           dissected (dissect-line account-identifier-line)]
       (is (= "Account Identifier and Summary Status"
              (get dissected :record-name))))))
