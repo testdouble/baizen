@@ -16,4 +16,9 @@
   (testing "account-identifier"
     (let [account-identifier-line ["03" "0975312468" nil "010" "500000" nil "0/"]
           dissected (dissect-line account-identifier-line)]
-      (is (= "03" (:record-code dissected))))))
+      (is (= "03" (:record-code dissected)))))
+
+  (testing "transaction-detail"
+    (let [transaction-detail-line ["16" "165" "1500000" "1" "DD1620" nil "DEALER PAYMENTS"]
+          dissected (dissect-line transaction-detail-line)]
+      (is (= "16" (:record-code dissected))))))
