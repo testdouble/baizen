@@ -8,9 +8,6 @@
      :group-status :as-of-date :as-of-time
      :currency-code :as-of-date-modifier])
 
-  (index-of [this key]
-    (.indexOf (fields this) key))
-
   (prepare [this line]
     (-> line
         (assoc (index-of this :record-name) "Group Header")

@@ -8,9 +8,6 @@
      :creation-date :creation-time :file-id
      :record-length :block-size :version])
 
-  (index-of [this key]
-    (.indexOf (fields this) key))
-
   (prepare [this line]
     (-> line
         (assoc (index-of this :record-name) "File Header")

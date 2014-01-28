@@ -5,9 +5,6 @@
   BaiFormat
   (fields [_] [:record-name])
 
-  (index-of [this key]
-    (.indexOf (fields this) key))
-
   (prepare [this line]
     (-> line
         (assoc (index-of this :record-name) "Account Identifier and Summary Status")))
