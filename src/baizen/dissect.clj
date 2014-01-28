@@ -1,7 +1,12 @@
 (ns baizen.dissect
   (:require [clojure.core.match :refer [match]]
-            [baizen.formats :refer :all])
-  (:import  [baizen.formats FileHeader GroupHeader AccountIdentifier]))
+            [baizen.formats :refer :all]
+            [baizen.formats.account-identifier :refer :all]
+            [baizen.formats.group-header :refer :all]
+            [baizen.formats.file-header :refer :all])
+  (:import [baizen.formats.file_header FileHeader]
+           [baizen.formats.group_header GroupHeader]
+           [baizen.formats.account_identifier AccountIdentifier]))
 
 (defn dissect-line
   "dissect a BAI vector into a hash of understandable parts"

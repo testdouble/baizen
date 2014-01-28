@@ -1,7 +1,8 @@
 (ns baizen.formats.file-header-test
     (:require [clojure.test :refer :all]
-              [baizen.formats :refer :all])
-    (:import [baizen.formats FileHeader]))
+              [baizen.formats :refer :all]
+              [baizen.formats.file-header :refer :all])
+    (:import [baizen.formats.file_header FileHeader]))
 
 (def file-header-line ["01" "021000018" "55287" "051025" "0600" "1" "80" "080" "2/"])
 

@@ -1,7 +1,8 @@
 (ns baizen.formats.group-header-test
   (:require [clojure.test :refer :all]
-            [baizen.formats :refer :all])
-  (:import [baizen.formats GroupHeader]))
+            [baizen.formats :refer :all]
+            [baizen.formats.group-header :refer :all])
+  (:import [baizen.formats.group_header GroupHeader]))
 
 (def group-header-line ["02" "031001234" "122099999" "1" "040620" "2359" "GBP" "2/"])
 
