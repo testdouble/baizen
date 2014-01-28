@@ -9,7 +9,7 @@
 (deftest group-header-test
   (testing "group header fields"
     (let [group-header (dissect (GroupHeader. group-header-line))]
-      (is (= "Group Header" (:record-name group-header)))
+      (is (= "02" (:record-code group-header)))
       (is (= "031001234" (:receiver-id group-header)))
       (is (= "122099999" (:originator-id group-header)))
       (is (= "1" (:group-status group-header)))

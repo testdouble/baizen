@@ -9,7 +9,7 @@
 (deftest account-identifier-test
   (testing "account identifier fields"
     (let [account-identifier (dissect (AccountIdentifier. account-identifier-line))]
-      (is (= "Account Identifier and Summary Status" (:record-name account-identifier)))
+      (is (= "03" (:record-code account-identifier)))
       (is (= "0975312468" (:customer-account-number account-identifier)))
       (is (= "GBP" (:currency-code account-identifier)))
       (is (= "010" (:type-code account-identifier)))

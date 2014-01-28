@@ -4,12 +4,11 @@
 (defrecord GroupHeader [line]
   BaiFormat
   (fields [_]
-    [:record-name :receiver-id :originator-id
+    [:record-code :receiver-id :originator-id
      :group-status :as-of-date :as-of-time
      :currency-code :as-of-date-modifier])
 
   (prepare [this line]
     (-> line
-        (assoc (index-of this :record-name) "Group Header")
         (?assoc (index-of this :currency-code) "USD")
         (assoc (index-of this :as-of-date-modifier) (drop-slash (get line (index-of this :as-of-date-modifier)))))))

@@ -9,7 +9,7 @@
 (deftest file-header-test
   (testing "file header fields"
     (let [file-header (dissect (FileHeader. file-header-line))]
-      (is (= "File Header" (:record-name file-header)))
+      (is (= "01" (:record-code file-header)))
       (is (= "021000018" (:sender-id file-header)))
       (is (= "55287" (:receiver-id file-header)))
       (is (= "051025" (:creation-date file-header)))
