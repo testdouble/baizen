@@ -4,7 +4,7 @@
             [baizen.formats.account-identifier :refer :all])
   (:import [baizen.formats.account_identifier AccountIdentifier]))
 
-(def account-identifier-line ["03" "0975312468" "GBP" "010" "500000" "1" "0" "190" "70000000" "4" "0/"])
+(def account-identifier-line ["03" "0975312468" "GBP" "010" "500000" "1" "0/"])
 
 (deftest account-identifier-test
   (testing "account identifier fields"
