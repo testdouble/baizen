@@ -12,9 +12,9 @@
     (.indexOf (fields this) key))
 
   (prepare [this line]
-    (assoc line
-      (index-of this :record-name) "File Header"
-      (index-of this :version) "2"))
+    (-> line
+        (assoc (index-of this :record-name) "File Header")
+        (assoc (index-of this :version) "2")))
 
   (dissect [this]
     (let [line (prepare this line)]
