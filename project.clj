@@ -1,4 +1,4 @@
-(defproject baizen "0.1.0-SNAPSHOT"
+(defproject baizen "0.2.0-SNAPSHOT"
   :description "BAI file format parser"
   :url "https://github.com/bostonaholic/baizen"
   :license {:name "Eclipse Public License"
