@@ -5,7 +5,8 @@
   (assoc m k (or (get m k) v)))
 
 (defn drop-slash [s]
-  (str/replace s #"\/$" ""))
+  (when s
+    (str/replace s #"\/$" "")))
 
 (defprotocol BaiFormat
   "a clojure protocol for describing a BAI record format"
