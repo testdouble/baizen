@@ -33,4 +33,9 @@
   (testing "group-trailer"
     (let [group-trailer-line ["98" "11800000" "2" "6/"]
           dissected (dissect-line group-trailer-line)]
-      (is (= "98" (:record-code dissected))))))
+      (is (= "98" (:record-code dissected)))))
+
+  (testing "file-trailer"
+    (let [file-trailer-line ["99" "1215450000" "4" "36/"]
+          dissected (dissect-line file-trailer-line)]
+      (is (= "99" (:record-code dissected))))))
