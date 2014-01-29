@@ -5,12 +5,14 @@
             [baizen.formats.group-header :refer :all]
             [baizen.formats.account-identifier :refer :all]
             [baizen.formats.transaction-detail :refer :all]
-            [baizen.formats.account-trailer :refer :all])
+            [baizen.formats.account-trailer :refer :all]
+            [baizen.formats.group-trailer :refer :all])
   (:import [baizen.formats.file_header FileHeader]
            [baizen.formats.group_header GroupHeader]
            [baizen.formats.account_identifier AccountIdentifier]
            [baizen.formats.transaction_detail TransactionDetail]
-           [baizen.formats.account_trailer AccountTrailer]))
+           [baizen.formats.account_trailer AccountTrailer]
+           [baizen.formats.group_trailer GroupTrailer]))
 
 (defn dissect-line
   "dissect a BAI vector into a hash of understandable parts"
@@ -22,6 +24,6 @@
          [(["16" & r] :seq)] (dissect (TransactionDetail. line))
          ;; [(["88" & r] :seq)] (dissect (ContinuationRecord. line))
          [(["49" & r] :seq)] (dissect (AccountTrailer. line))
-         ;; [(["98" & r] :seq)] (dissect (GroupTrailer. line))
+         [(["98" & r] :seq)] (dissect (GroupTrailer. line))
          ;; [(["99" & r] :seq)] (dissect (FileTrailer. line))
          :else line))

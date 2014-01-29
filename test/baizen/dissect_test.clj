@@ -28,4 +28,9 @@
   (testing "account-trailer"
     (let [account-trailer-line ["49" "18650000" "3/"]
           dissected (dissect-line account-trailer-line)]
-      (is (= "49" (:record-code dissected))))))
+      (is (= "49" (:record-code dissected)))))
+
+  (testing "group-trailer"
+    (let [group-trailer-line ["98" "11800000" "2" "6/"]
+          dissected (dissect-line group-trailer-line)]
+      (is (= "98" (:record-code dissected))))))
