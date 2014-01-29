@@ -31,10 +31,64 @@ More documentation can be found on the [wiki](https://github.com/bostonaholic/ba
 
 ## Usage
 
-```
-(require '[baizen.core :as baizen])
+from the repl
 
-(baizen/parse "file.bai")
+```
+user=> (require '[baizen.core :as baizen])
+nil
+user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
+({:version "2",
+  :block-size "080",
+  :record-length "80",
+  :file-id "1",
+  :creation-time "0600",
+  :creation-date "051025",
+  :receiver-id "55287",
+  :sender-id "021000018",
+  :record-code "01"}
+ {:as-of-date-modifier "",
+  :currency-code "",
+  :as-of-time "0000",
+  :as-of-date "051022",
+  :group-status "1",
+  :originator-id "021000018",
+  :receiver-id "55287",
+  :record-code "02"}
+ {:funds-type "",
+  :item-count "",
+  :amount "+00000004060801",
+  :type-code "015",
+  :currency-code "",
+  :customer-account-number "0101999999",
+  :record-code "03"}
+ {:customer-reference-number "Miami",
+  :bank-reference-number "00087829876",
+  :funds-type "Z",
+  :amount "000000000346685",
+  :type-code "175",
+  :record-code "16"}
+ {:number-of-records "23",
+  :account-control-total "000000018798558",
+  :record-code "49"}
+ {:number-of-records "32",
+  :number-of-accounts "2",
+  :group-control-total "000000059748918",
+  :record-code "98"}
+ {:number-of-records "34",
+  :number-of-groups "1",
+  :file-control-total "000000059748918",
+  :record-code "99"})
+nil
+```
+
+from your project
+
+```
+(ns my.domain.core
+  (:require [baizen.core :as :baizen]))
+  
+(defn parse-it [filename]
+  (baizen/parse filename))
 ```
 
 What's returned from `baizen/parse` is a LazySeq of maps representing
