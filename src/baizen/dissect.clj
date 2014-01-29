@@ -18,7 +18,6 @@
          [(["02" & r] :seq)] (dissect (GroupHeader. line))
          [(["03" & r] :seq)] (dissect (AccountIdentifier. line))
          [(["16" & r] :seq)] (dissect (TransactionDetail. line))
-         ;; [(["16" "890" & r] :seq)] (dissect (TransactionMessage. line))
          ;; [(["88" & r] :seq)] (dissect (Continuation. line))
          ;; [(["49" & r] :seq)] (dissect (AccountTrailer. line))
          ;; [(["98" & r] :seq)] (dissect (GroupTrailer. line))
