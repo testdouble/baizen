@@ -21,4 +21,11 @@
   (testing "transaction-detail"
     (let [transaction-detail-line ["16" "165" "1500000" "1" "DD1620" nil "DEALER PAYMENTS"]
           dissected (dissect-line transaction-detail-line)]
-      (is (= "16" (:record-code dissected))))))
+      (is (= "16" (:record-code dissected)))))
+
+  (testing "continuation-record")
+
+  (testing "account-trailer"
+    (let [account-trailer-line ["49" "18650000" "3/"]
+          dissected (dissect-line account-trailer-line)]
+      (is (= "49" (:record-code dissected))))))
