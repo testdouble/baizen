@@ -1,5 +1,6 @@
 (ns baizen.formats.group-trailer
-  (:require [baizen.formats :refer :all]))
+  (:require [baizen.formats :refer :all]
+            [baizen.utils :refer [drop-slash]]))
 
 (defrecord GroupTrailer [line]
   BaiFormat

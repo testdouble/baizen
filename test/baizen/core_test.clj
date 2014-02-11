@@ -1,12 +1,14 @@
 (ns baizen.core-test
   (:require [clojure.test :refer :all]
-            [baizen.core :refer :all]))
+            [baizen.core :refer :all])
+  (:import [java.io StringReader]))
 
-(def test-file "test-resources/BAI-File-From-Bank.bai")
-(def simple-test-file "test-resources/BAI-File-From-Bank-Simple.bai")
+(def bai-continuation-lines
+  (StringReader. "16,115,10000000,S,5000000,4000000,1000000/
+88,AX13612,B096132,AMALGAMATED CORP. LOCKBOX"))
 
-(deftest parse-test
-  (testing "smoke tests"
-    (let [parsed-file (parse simple-test-file)]
-      (is (> (count parsed-file) 0))
-      (is (not (nil? (some #(= (:amount %1) "000000000346685") parsed-file)))))))
+(deftest preprocess-continuations-test
+  (testing "removes 88 records"
+    (let [rdr (preprocess-continuations bai-continuation-lines)]
+      (is (= "16,115,10000000,S,5000000,4000000,1000000,AX13612,B096132,AMALGAMATED CORP. LOCKBOX"
+             (slurp rdr))))))

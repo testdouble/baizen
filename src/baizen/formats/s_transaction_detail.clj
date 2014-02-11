@@ -1,5 +1,6 @@
 (ns baizen.formats.s-transaction-detail
-  (:require [baizen.formats :refer :all]))
+  (:require [baizen.formats :refer :all]
+            [baizen.utils :refer [drop-slash]]))
 
 (defrecord STransactionDetail [line]
   BaiFormat

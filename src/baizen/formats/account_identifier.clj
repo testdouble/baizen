@@ -1,5 +1,6 @@
 (ns baizen.formats.account-identifier
-  (:require [baizen.formats :refer :all]))
+  (:require [baizen.formats :refer :all]
+            [baizen.utils :refer [drop-slash]]))
 
 (defrecord AccountIdentifier [line]
   BaiFormat

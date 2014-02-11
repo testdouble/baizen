@@ -1,5 +1,6 @@
 (ns baizen.formats.file-trailer
-  (:require [baizen.formats :refer :all]))
+  (:require [baizen.formats :refer :all]
+            [baizen.utils :refer [drop-slash]]))
 
 (defrecord FileTrailer [line]
   BaiFormat
