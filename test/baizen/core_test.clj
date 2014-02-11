@@ -9,6 +9,6 @@
 
 (deftest preprocess-continuations-test
   (testing "removes 88 records"
-    (let [rdr (preprocess-continuations bai-continuation-lines)]
+    (let [rdr (preprocess-reader bai-continuation-lines)]
       (is (= "16,115,10000000,S,5000000,4000000,1000000,AX13612,B096132,AMALGAMATED CORP. LOCKBOX"
              (slurp rdr))))))
