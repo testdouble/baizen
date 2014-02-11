@@ -4,8 +4,9 @@
             [baizen.dissect :refer [dissect-line]]))
 
 (defn parse
-  "parse a BAI file into a clojure.lang.LazySeq"
+  "parse a BAI file into a Vector of Maps"
   [file-name]
   (with-open [file-reader (io/reader file-name)]
-    (doall
-     (map dissect-line (csv/read-csv file-reader)))))
+    (reduce #(conj %1 (dissect-line %2))
+            []
+            (csv/read-csv file-reader))))
