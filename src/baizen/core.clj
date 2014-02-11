@@ -11,9 +11,8 @@
   [acc line]
   (if (.startsWith line "88")
     (let [prev-line (drop-slash (last acc))
-          acc-without-last (butlast acc)
           line (drop-record-code line)]
-      (conj acc-without-last (apply str prev-line "," line)))
+      (conj (butlast acc) (apply str prev-line "," line)))
     (conj acc line)))
 
 (defn preprocess-reader
