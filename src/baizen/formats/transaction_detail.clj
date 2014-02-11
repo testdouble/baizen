@@ -9,5 +9,4 @@
      :bank-reference-number :customer-reference-number :text])
 
   (prepare [this line]
-    (-> line
-        (assoc (index-of this :customer-reference-number) (drop-slash (get line (index-of this :customer-reference-number)))))))
+    (update-in line [(index-of this :customer-reference-number)] drop-slash)))

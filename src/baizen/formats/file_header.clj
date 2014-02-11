@@ -9,5 +9,6 @@
      :record-length :block-size :version])
 
   (prepare [this line]
-    (-> line
-        (assoc (index-of this :version) "2"))))
+    (assoc line
+      (index-of this :version)
+      "2")))

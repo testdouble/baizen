@@ -8,5 +8,4 @@
                :type-code :amount :item-count :funds-type])
 
   (prepare [this line]
-    (-> line
-        (assoc (index-of this :funds-type) (drop-slash (get line (index-of this :funds-type)))))))
+    (update-in line [(index-of this :funds-type)] drop-slash)))
