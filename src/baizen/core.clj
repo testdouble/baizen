@@ -3,24 +3,22 @@
             [clojure.java.io :as io]
             [clojure.string :as str]
             [baizen.dissect :refer [dissect-line]]
-            [baizen.utils :refer [drop-slash drop-record-code]])
+            [baizen.utils :refer [drop-slash drop-record-code vbutlast]])
   (:import [java.io StringReader]))
 
 (defn combine-continuations
   "reducer which combines current 88 line with previous line or leaves the line intact"
-  [acc line]
-  (if (.startsWith line "88")
-    (let [prev-line (drop-slash (last acc))
-          line (drop-record-code line)]
-      (conj (butlast acc) (apply str prev-line "," line)))
-    (conj acc line)))
+  [acc columns]
+  (if (= "88" (first columns))
+    (let [prev-line (conj (vbutlast (last acc)) (drop-slash (last (last acc))))
+          line (rest columns)]
+      (conj (vbutlast acc) (apply conj prev-line line)))
+    (conj acc columns)))
 
-(defn preprocess-reader
+(defn preprocess
   "combines continuation records with previous line"
-  [reader]
-  (let [file-contents (slurp reader)
-        lines (str/split-lines file-contents)]
-    (StringReader. (apply str (interpose "\n" (reduce combine-continuations [] lines))))))
+  [lines]
+  (reduce combine-continuations [] lines))
 
 (defmulti parse
   "parse a BAI file into a Vector of Maps"
@@ -35,7 +33,8 @@
   java.io.Reader
   [reader]
   (with-open [rdr reader]
-    (let [preprocessed-rdr (preprocess-reader rdr)]
+    (let [lines (csv/read-csv rdr)
+          preprocessed (preprocess lines)]
       (reduce #(conj %1 (dissect-line %2))
               []
-              (csv/read-csv preprocessed-rdr)))))
+              preprocessed))))
