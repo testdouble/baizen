@@ -1,6 +1,6 @@
-(ns baizen.core-test
+(ns baizen.continuations-test
   (:require [clojure.test :refer :all]
-            [baizen.core :refer :all])
+            [baizen.continuations :refer :all])
   (:import [java.io StringReader]))
 
 (def bai-continuation-lines
