@@ -91,7 +91,7 @@ from your project
   (baizen/parse filename))
 ```
 
-What's returned from `baizen/parse` is a LazySeq of maps representing
+What's returned from `baizen/parse` is a Vector of Maps representing
 each record in the file.
 
 More documentation can be found on the
