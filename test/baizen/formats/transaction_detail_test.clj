@@ -24,6 +24,6 @@
   (testing "type S funds-type changes record fields"
     (let [transaction-detail-line ["16" "115" "10000000" "S" "5000000" "4000000" "1000000" "DD1620" "DASD1234" "DEALER PAYMENTS"]
           transaction-detail (dissect (TransactionDetail. transaction-detail-line))]
-      (is (= "5000000" (:immeditate-availibility-amount transaction-detail)))
+      (is (= "5000000" (:immediate-availibility-amount transaction-detail)))
       (is (= "4000000" (:oneday-availibility-amount transaction-detail)))
       (is (= "1000000" (:morethanoneday-availibility-amount transaction-detail))))))

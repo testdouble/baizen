@@ -6,7 +6,7 @@
   (fields [_]
     (if (= "S" (get line 3))
       [:record-code :type-code :amount :funds-type
-       :immeditate-availibility-amount :oneday-availibility-amount :morethanoneday-availibility-amount
+       :immediate-availibility-amount :oneday-availibility-amount :morethanoneday-availibility-amount
        :bank-reference-number :customer-reference-number :text]
       [:record-code :type-code :amount :funds-type
        :bank-reference-number :customer-reference-number :text]))
