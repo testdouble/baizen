@@ -3,10 +3,19 @@
             [clojure.data.csv :as csv]
             [baizen.dissect :refer [dissect-line]]))
 
-(defn parse
+(defmulti parse
   "parse a BAI file into a Vector of Maps"
+  class)
+
+(defmethod parse
+  java.lang.String
   [file-name]
-  (with-open [file-reader (io/reader file-name)]
+  (parse (io/reader file-name)))
+
+(defmethod parse
+  java.io.Reader
+  [reader]
+  (with-open [rdr reader]
     (reduce #(conj %1 (dissect-line %2))
             []
-            (csv/read-csv file-reader))))
+            (csv/read-csv rdr))))
