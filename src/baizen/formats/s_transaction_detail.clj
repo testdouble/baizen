@@ -1,10 +1,11 @@
-(ns baizen.formats.transaction-detail
+(ns baizen.formats.s-transaction-detail
   (:require [baizen.formats :refer :all]))
 
-(defrecord TransactionDetail [line]
+(defrecord STransactionDetail [line]
   BaiFormat
   (fields [_]
     [:record-code :type-code :amount :funds-type
+     :immediate-availibility-amount :oneday-availibility-amount :morethanoneday-availibility-amount
      :bank-reference-number :customer-reference-number :text])
 
   (prepare [this line]

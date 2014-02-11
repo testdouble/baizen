@@ -19,11 +19,4 @@
   (testing "strip the slash from the customer-reference-number"
     (let [transaction-detail-line ["16" "175" "000000000346685" "Z" "00087829876" "Miami/"]
           transaction-detail (dissect (TransactionDetail. transaction-detail-line))]
-      (is (= "Miami" (:customer-reference-number transaction-detail)))))
-
-  (testing "type S funds-type changes record fields"
-    (let [transaction-detail-line ["16" "115" "10000000" "S" "5000000" "4000000" "1000000" "DD1620" "DASD1234" "DEALER PAYMENTS"]
-          transaction-detail (dissect (TransactionDetail. transaction-detail-line))]
-      (is (= "5000000" (:immediate-availibility-amount transaction-detail)))
-      (is (= "4000000" (:oneday-availibility-amount transaction-detail)))
-      (is (= "1000000" (:morethanoneday-availibility-amount transaction-detail))))))
+      (is (= "Miami" (:customer-reference-number transaction-detail))))))

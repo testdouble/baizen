@@ -23,6 +23,11 @@
           dissected (dissect-line transaction-detail-line)]
       (is (= "16" (:record-code dissected)))))
 
+  (testing "s-transaction-detail"
+    (let [transaction-detail-line ["16" "115" "10000000" "S" "5000000" "4000000" "1000000" "DD1620" "DASD1234" "DEALER PAYMENTS"]
+          dissected (dissect-line transaction-detail-line)]
+      (is (= "16" (:record-code dissected)))))
+
   (testing "continuation-record")
 
   (testing "account-trailer"
