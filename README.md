@@ -2,7 +2,7 @@
 
 A Clojure library designed to parse the Bank Administration Institute (BAI) file format.
 
-[![Build Status](https://travis-ci.org/bostonaholic/baizen.png?branch=master)](https://travis-ci.org/bostonaholic/baizen)
+[![Build Status](https://travis-ci.org/testdouble/baizen.png?branch=master)](https://travis-ci.org/testdouble/baizen)
 [![Dependency Status](https://www.versioneye.com/user/projects/52e839b0ec1375a4ca000372/badge.png)](https://www.versioneye.com/user/projects/52e839b0ec1375a4ca000372)
 
 More documentation can be found on the [wiki](https://github.com/testdouble/baizen/wiki).
