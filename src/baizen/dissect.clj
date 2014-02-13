@@ -27,7 +27,6 @@
          [(["03" & r] :seq)] (dissect (AccountIdentifier. line))
          [(["16" _ _ "S" & r] :seq)] (dissect (STransactionDetail. line))
          [(["16" & r] :seq)] (dissect (TransactionDetail. line))
-         ;; [(["88" & r] :seq)] (dissect (ContinuationRecord. line))
          [(["49" & r] :seq)] (dissect (AccountTrailer. line))
          [(["98" & r] :seq)] (dissect (GroupTrailer. line))
          [(["99" & r] :seq)] (dissect (FileTrailer. line))
