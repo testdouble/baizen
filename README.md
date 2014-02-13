@@ -5,7 +5,7 @@ A Clojure library designed to parse the Bank Administration Institute (BAI) file
 [![Build Status](https://travis-ci.org/bostonaholic/baizen.png?branch=master)](https://travis-ci.org/bostonaholic/baizen)
 [![Dependency Status](https://www.versioneye.com/user/projects/52e839b0ec1375a4ca000372/badge.png)](https://www.versioneye.com/user/projects/52e839b0ec1375a4ca000372)
 
-More documentation can be found on the [wiki](https://github.com/bostonaholic/baizen/wiki).
+More documentation can be found on the [wiki](https://github.com/testdouble/baizen/wiki).
 
 ## Reference Documentation
 
@@ -95,7 +95,7 @@ What's returned from `baizen/parse` is a Vector of Maps representing
 each record in the file.
 
 More documentation can be found on the
-[wiki](https://github.com/bostonaholic/baizen/wiki).
+[wiki](https://github.com/testdouble/baizen/wiki).
 
 ## Development
 
@@ -109,11 +109,11 @@ $ lein test
 
 ## Documentation
 
-More documentation can be found on the [wiki](https://github.com/bostonaholic/baizen/wiki).
+More documentation can be found on the [wiki](https://github.com/testdouble/baizen/wiki).
 
 ## License
 
-Copyright © 2014 Matthew Boston
+Copyright © 2014 Test Double
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
