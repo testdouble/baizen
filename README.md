@@ -37,7 +37,7 @@ from the repl
 user=> (require '[baizen.core :as baizen])
 nil
 user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
-({:version "2",
+[{:version "2",
   :block-size "080",
   :record-length "80",
   :file-id "1",
@@ -54,10 +54,15 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
   :originator-id "021000018",
   :receiver-id "55287",
   :record-code "02"}
- {:funds-type "",
-  :item-count "",
-  :amount "+00000004060801",
-  :type-code "015",
+ {:summaries
+  ({:funds-type "",
+    :item-count "",
+    :amount "+00000004060801",
+    :type-code "015"}
+   {:funds-type "",
+    :item-count "",
+    :amount "+00000003836014",
+    :type-code "045"}),
   :currency-code "",
   :customer-account-number "0101999999",
   :record-code "03"}
@@ -77,7 +82,7 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
  {:number-of-records "34",
   :number-of-groups "1",
   :file-control-total "000000059748918",
-  :record-code "99"})
+  :record-code "99"}]
 nil
 ```
 
