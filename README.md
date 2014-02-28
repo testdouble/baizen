@@ -112,6 +112,13 @@ $ lein test
 
 (assumes Leiningen 2.x)
 
+## Contributing
+
+Thanks to all of our [contributors](https://github.com/testdouble/baizen/graphs/contributors).
+
+We welcome all contributors to the project. Please submit an [Issue](https://github.com/testdouble/baizen/issues)
+and a [Pull Request](https://github.com/testdouble/baizen/pulls) if you have one.
+
 ## Documentation
 
 More documentation can be found on the [wiki](https://github.com/testdouble/baizen/wiki).
