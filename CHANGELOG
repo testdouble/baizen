@@ -3,6 +3,8 @@
 * Enhancements
   * `baizen.core/parse` now also accepts `java.io.Reader` as its
     argument
+  * Transaction Detail Records (:type-code 16) and (:funds-type "S") have
+    special case availability fields
   * Transaction Detail Records (:type-code 16) fixed misspelling of
     several fields
   * Continuation Records (:type-code 88) are now combined into the
