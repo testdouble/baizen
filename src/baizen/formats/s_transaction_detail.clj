@@ -6,7 +6,7 @@
   BaiFormat
   (fields [_]
     [:record-code :type-code :amount :funds-type
-     :immediate-availibility-amount :oneday-availibility-amount :morethanoneday-availibility-amount
+     :immediate-availability-amount :oneday-availability-amount :morethanoneday-availability-amount
      :bank-reference-number :customer-reference-number :text])
 
   (prepare [this line]
