@@ -6,7 +6,8 @@
 (def simple-test-file "test-resources/BAI-File-From-Bank-Simple.bai")
 
 (deftest parse-test
-  (testing "smoke tests"
-    (let [parsed-file (parse simple-test-file)]
-      (is (> (count parsed-file) 0))
-      (is (not (nil? (some #(= (:amount %1) "000000000346685") parsed-file)))))))
+  (testing "smoke tests -- transactions"
+    (let [parsed-file (parse simple-test-file)
+          txns (:transactions (first (:accounts (first (:groups parsed-file)))))]
+      (is (> (count txns) 0))
+      (is (not (nil? (some #(= (:amount %1) "000000000346685") txns)))))))

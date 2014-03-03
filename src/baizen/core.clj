@@ -2,7 +2,7 @@
   (:require [clojure.data.csv :as csv]
             [clojure.java.io :as io]
             [baizen.continuations :refer [preprocess]]
-            [baizen.dissect :refer [dissect-line]]))
+            [baizen.parser :refer [parse-file-header-info parse-file-trailer-info parse-groups]]))
 
 (defmulti parse
   "parse a BAI file into a Vector of Maps"
@@ -18,7 +18,11 @@
   [reader]
   (with-open [rdr reader]
     (let [lines (csv/read-csv rdr)
-          preprocessed (preprocess lines)]
-      (reduce #(conj %1 (dissect-line %2))
-              []
-              preprocessed))))
+          preprocessed (preprocess lines)
+          header (first preprocessed)
+          trailer (last preprocessed)]
+      { :file-header (parse-file-header-info header)
+        :groups (parse-groups (take-while
+                                #(not (= (first %) "99"))
+                                (rest preprocessed)))
+        :file-trailer (parse-file-trailer-info trailer)})))
