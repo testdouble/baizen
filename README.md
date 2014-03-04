@@ -16,7 +16,7 @@ More documentation can be found on the [wiki](https://github.com/testdouble/baiz
 [Leiningen](https://github.com/technomancy/leiningen/):
 
 ```
-[baizen "0.2.0"]
+[baizen "0.3.0"]
 ```
 
 [Maven](http://maven.apache.org/):
@@ -25,7 +25,7 @@ More documentation can be found on the [wiki](https://github.com/testdouble/baiz
 <dependency>
   <groupId>baizen</groupId>
   <artifactId>baizen</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
 </dependency>
 ```
 
@@ -37,7 +37,8 @@ from the repl
 user=> (require '[baizen.core :as baizen])
 nil
 user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
-[{:version "2",
+{:file-header
+ {:version "2",
   :block-size "080",
   :record-length "80",
   :file-id "1",
@@ -45,45 +46,52 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
   :creation-date "051025",
   :receiver-id "55287",
   :sender-id "021000018",
-  :record-code "01"}
- {:as-of-date-modifier "",
-  :currency-code "",
-  :as-of-time "0000",
-  :as-of-date "051022",
-  :group-status "1",
-  :originator-id "021000018",
-  :receiver-id "55287",
-  :record-code "02"}
- {:summaries
-  ({:funds-type "",
-    :item-count "",
-    :amount "+00000004060801",
-    :type-code "015"}
-   {:funds-type "",
-    :item-count "",
-    :amount "+00000003836014",
-    :type-code "045"}),
-  :currency-code "",
-  :customer-account-number "0101999999",
-  :record-code "03"}
- {:customer-reference-number "Miami",
-  :bank-reference-number "00087829876",
-  :funds-type "Z",
-  :amount "000000000346685",
-  :type-code "175",
-  :record-code "16"}
- {:number-of-records "23",
-  :account-control-total "000000018798558",
-  :record-code "49"}
- {:number-of-records "32",
-  :number-of-accounts "2",
-  :group-control-total "000000059748918",
-  :record-code "98"}
+  :record-code "01"},
+ :groups
+ [{:group-header
+   {:as-of-date-modifier "",
+    :currency-code "",
+    :as-of-time "0000",
+    :as-of-date "051022",
+    :group-status "1",
+    :originator-id "021000018",
+    :receiver-id "55287",
+    :record-code "02"},
+   :accounts
+   [{:account-identifier
+     {:summaries
+      ({:funds-type "",
+        :item-count "",
+        :amount "+00000004060801",
+        :type-code "015"}
+       {:funds-type "",
+        :item-count "",
+        :amount "+00000003836014",
+        :type-code "045"}),
+      :currency-code "",
+      :customer-account-number "0101999999",
+      :record-code "03"},
+     :transactions
+     ({:customer-reference-number "Miami",
+       :bank-reference-number "00087829876",
+       :funds-type "Z",
+       :amount "000000000346685",
+       :type-code "175",
+       :record-code "16"}),
+     :account-trailer
+     {:number-of-records "23",
+      :account-control-total "000000018798558",
+      :record-code "49"}}],
+   :group-trailer
+   {:number-of-records "32",
+    :number-of-accounts "2",
+    :group-control-total "000000059748918",
+    :record-code "98"}}],
+ :file-trailer
  {:number-of-records "34",
   :number-of-groups "1",
   :file-control-total "000000059748918",
-  :record-code "99"}]
-nil
+  :record-code "99"}}
 ```
 
 from your project
