@@ -1,12 +1,17 @@
-(ns baizen.formats)
+(ns baizen.formats
+  (:require [clojure.string :as str]))
 
 (defn ?assoc
-  "only assoc if the value in the map is nil or the key doesn't exist"
+  "Safe assoc. Only assoc if the value in the map is nil or the key does not exist."
   [m k v]
   (update-in m [k] #(or %1 %2) v))
 
+(defn drop-slash [s]
+  (when s
+    (str/replace s #"\/$" "")))
+
 (defprotocol BaiFormat
-  "a clojure protocol for describing a BAI record format"
+  "A clojure protocol for describing a BAI record format."
   (fields [f])
   (prepare [f line]))
 

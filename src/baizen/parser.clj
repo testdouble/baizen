@@ -19,9 +19,7 @@
            [baizen.formats.file_trailer FileTrailer]))
 
 
-(defn parse-line
-  "dissect a BAI vector into a hash of understandable parts"
-  [line]
+(defn parse-transaction [line]
   (match [line]
          [(["16" _ _ "S" & r] :seq)] (dissect (STransactionDetail. line))
          [(["16" & r] :seq)] (dissect (TransactionDetail. line))
@@ -41,29 +39,31 @@
               record-group-parser
               (conj acc (record-group-parser header-line content-lines trailer-line)))))))
 
-(defn parse-accounts
-  [lines]
+(defn parse-accounts [lines]
   (parse-header-trailer-section
     "49"
     lines
     (fn [header-line content-lines trailer-line]
       {:account-identifier (dissect (AccountIdentifier. header-line))
-       :transactions (map parse-line content-lines)
+       :transactions (map parse-transaction content-lines)
        :account-trailer (dissect (AccountTrailer. trailer-line))})))
 
-(defn parse-groups
-  [lines]
-  (parse-header-trailer-section
-    "98"
-    lines
-    (fn [header-line content-lines trailer-line]
-      {:group-header (dissect (GroupHeader. header-line))
-       :accounts (parse-accounts content-lines)
-       :group-trailer (dissect (GroupTrailer. trailer-line))})))
+(defn- take-all-but-file-trailer [lines]
+  (take-while #(not (= (first %) "99")) lines))
+
+(defn parse-groups [lines]
+  (let [file-lines (take-all-but-file-trailer lines)]
+    (parse-header-trailer-section
+     "98"
+     file-lines
+     (fn [header-line content-lines trailer-line]
+       {:group-header (dissect (GroupHeader. header-line))
+        :accounts (parse-accounts content-lines)
+        :group-trailer (dissect (GroupTrailer. trailer-line))}))))
 
 
-(defn parse-file-header-info [header-line]
+(defn parse-file-header [header-line]
   (dissect (FileHeader. header-line)))
 
-(defn parse-file-trailer-info [trailer-line]
+(defn parse-file-trailer [trailer-line]
   (dissect (FileTrailer. trailer-line)))

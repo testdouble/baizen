@@ -1,5 +1,5 @@
 (ns baizen.continuations
-  (:require [baizen.utils :refer [drop-slash]]))
+  (:require [baizen.formats :refer [drop-slash]]))
 
 (defn- vbutlast
   "butlast for Vectors"

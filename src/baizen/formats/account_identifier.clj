@@ -1,6 +1,5 @@
 (ns baizen.formats.account-identifier
-  (:require [baizen.formats :refer :all]
-            [baizen.utils :refer [drop-slash]]))
+  (:require [baizen.formats :refer [BaiFormat drop-slash]]))
 
 (defn hashify-summary-fields [line]
   (let [fields (subvec line 0 3)

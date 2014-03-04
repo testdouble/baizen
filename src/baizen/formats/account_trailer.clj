@@ -1,6 +1,5 @@
 (ns baizen.formats.account-trailer
-  (:require [baizen.formats :refer :all]
-            [baizen.utils :refer [drop-slash]]))
+  (:require [baizen.formats :refer :all]))
 
 (defrecord AccountTrailer [line]
   BaiFormat

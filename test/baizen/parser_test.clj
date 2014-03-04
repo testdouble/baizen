@@ -2,15 +2,15 @@
   (:require [clojure.test :refer :all]
             [baizen.parser :refer :all]))
 
-(deftest parse-line-test
+(deftest parse-transaction-test
   (testing "transaction-detail"
     (let [transaction-detail-line ["16" "165" "1500000" "1" "DD1620" nil "DEALER PAYMENTS"]
-          dissected (parse-line transaction-detail-line)]
+          dissected (parse-transaction transaction-detail-line)]
       (is (= "16" (:record-code dissected)))))
 
   (testing "s-transaction-detail"
     (let [transaction-detail-line ["16" "115" "10000000" "S" "5000000" "4000000" "1000000" "DD1620" "DASD1234" "DEALER PAYMENTS"]
-          dissected (parse-line transaction-detail-line)]
+          dissected (parse-transaction transaction-detail-line)]
       (is (= "16" (:record-code dissected))))))
 
 (def bai-group

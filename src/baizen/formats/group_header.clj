@@ -1,6 +1,5 @@
 (ns baizen.formats.group-header
-  (:require [baizen.formats :refer :all]
-            [baizen.utils :refer [drop-slash]]))
+  (:require [baizen.formats :refer [BaiFormat ?assoc index-of drop-slash]]))
 
 (defrecord GroupHeader [line]
   BaiFormat
