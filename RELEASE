@@ -1,8 +1,10 @@
 1. Update CHANGELOG
 2. Update README
 3. Remove -SNAPSHOT
-4. git tag 
-5. GitHub Release (use tag)
-6. `lein deploy clojars`
-7. Add -SNAPSHOT v+0.1.0
-8. Update GitHub Wiki
+4. git commit
+5. git tag
+6. GitHub Release (use tag)
+7. `lein deploy clojars`
+8. Add -SNAPSHOT v+0.1.0
+9. git commit
+10. Update GitHub Wiki
