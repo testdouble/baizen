@@ -18,7 +18,6 @@
            [baizen.formats.group_trailer GroupTrailer]
            [baizen.formats.file_trailer FileTrailer]))
 
-
 (defn parse-transaction [line]
   (match [line]
          [(["16" _ _ "S" & r] :seq)] (dissect (STransactionDetail. line))
@@ -60,7 +59,6 @@
        {:group-header (dissect (GroupHeader. header-line))
         :accounts (parse-accounts content-lines)
         :group-trailer (dissect (GroupTrailer. trailer-line))}))))
-
 
 (defn parse-file-header [header-line]
   (dissect (FileHeader. header-line)))

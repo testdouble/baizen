@@ -10,5 +10,4 @@
 
   (prepare [this line]
     (assoc line
-      (index-of this :version)
-      "2")))
+      (index-of this :version) "2")))
