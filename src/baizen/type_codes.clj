@@ -49,528 +49,524 @@
 ;;    Loan Summary and Detail type codes
 ;;      900–999
 
-(def type-codes {
-; UNIFORM BAI BALANCE REPORTING TYPE CODES
-10 {:txn "NA" :level "Status" :description "Opening Ledger"}
-11 {:txn "NA" :level "Status" :description "Average Opening Ledger MTD"}
-12 {:txn "NA" :level "Status" :description "Average Opening Ledger YTD"}
-15 {:txn "NA" :level "Status" :description "Closing Ledger"}
-20 {:txn "NA" :level "Status" :description "Average Closing Ledger MTD"}
-21 {:txn "NA" :level "Status" :description "Average Closing Ledger – Previous Month"}
-22 {:txn "NA" :level "Status" :description "Aggregate Balance Adjustments"}
-24 {:txn "NA" :level "Status" :description "Average Closing Ledger YTD – Previous Month"}
-25 {:txn "NA" :level "Status" :description "Average Closing Ledger YTD"}
-30 {:txn "NA" :level "Status" :description "Current Ledger"}
-37 {:txn "NA" :level "Status" :description "ACH Net Position"}
-39 {:txn "NA" :level "Status" :description "Opening Available Total Same-Day ACH DTC Deposit"}
-40 {:txn "NA" :level "Status" :description "Opening Available"}
-41 {:txn "NA" :level "Status" :description "Average Opening Available MTD"}
-42 {:txn "NA" :level "Status" :description "Average Opening Available YTD"}
-43 {:txn "NA" :level "Status" :description "Average Available – Previous Month"}
-44 {:txn "NA" :level "Status" :description "Disbursing Opening Available Balance"}
-45 {:txn "NA" :level "Status" :description "Closing Available"}
-50 {:txn "NA" :level "Status" :description "Average Closing Available MTD"}
-51 {:txn "NA" :level "Status" :description "Average Closing Available – Last Month"}
-54 {:txn "NA" :level "Status" :description "Average Closing Available YTD – Last Month"}
-55 {:txn "NA" :level "Status" :description "Average Closing Available YTD"}
-56 {:txn "NA" :level "Status" :description "Loan Balance"}
-57 {:txn "NA" :level "Status" :description "Total Investment Position"}
-59 {:txn "NA" :level "Status" :description "Current Available (CRS Supressed)"}
-60 {:txn "NA" :level "Status" :description "Current Available"}
-61 {:txn "NA" :level "Status" :description "Average Current Available MTD"}
-62 {:txn "NA" :level "Status" :description "Average Current Available YTD"}
-63 {:txn "NA" :level "Status" :description "Total Float"}
-65 {:txn "NA" :level "Status" :description "Target Balance"}
-66 {:txn "NA" :level "Status" :description "Adjusted Balance"}
-67 {:txn "NA" :level "Status" :description "Adjusted Balance MTD"}
-68 {:txn "NA" :level "Status" :description "Adjusted Balance YTD"}
-70 {:txn "NA" :level "Status" :description "0-Day Float"}
-72 {:txn "NA" :level "Status" :description "1-Day Float"}
-73 {:txn "NA" :level "Status" :description "Float Adjustment"}
-74 {:txn "NA" :level "Status" :description "2 or More Days Float"}
-75 {:txn "NA" :level "Status" :description "3 or More Days Float"}
-76 {:txn "NA" :level "Status" :description "Adjustment to Balances"}
-77 {:txn "NA" :level "Status" :description "Average Adjustment to Balances MTD"}
-78 {:txn "NA" :level "Status" :description "Average Adjustment to Balances YTD"}
-79 {:txn "NA" :level "Status" :description "4-Day Float"}
-80 {:txn "NA" :level "Status" :description "5-Day Float"}
-81 {:txn "NA" :level "Status" :description "6-Day Float"}
-82 {:txn "NA" :level "Status" :description "Average 1-Day Float MTD"}
-83 {:txn "NA" :level "Status" :description "Average 1-Day Float YTD"}
-84 {:txn "NA" :level "Status" :description "Average 2-Day Float MTD"}
-85 {:txn "NA" :level "Status" :description "Average 2-Day Float YTD"}
-86 {:txn "NA" :level "Status" :description "Transfer Calculation"}
+(def type-codes
+  {
+   ;; UNIFORM BAI BALANCE REPORTING TYPE CODES
+   "010" {:transaction "NA" :level "Status" :description "Opening Ledger"}
+   "011" {:transaction "NA" :level "Status" :description "Average Opening Ledger MTD"}
+   "012" {:transaction "NA" :level "Status" :description "Average Opening Ledger YTD"}
+   "015" {:transaction "NA" :level "Status" :description "Closing Ledger"}
+   "020" {:transaction "NA" :level "Status" :description "Average Closing Ledger MTD"}
+   "021" {:transaction "NA" :level "Status" :description "Average Closing Ledger – Previous Month"}
+   "022" {:transaction "NA" :level "Status" :description "Aggregate Balance Adjustments"}
+   "024" {:transaction "NA" :level "Status" :description "Average Closing Ledger YTD – Previous Month"}
+   "025" {:transaction "NA" :level "Status" :description "Average Closing Ledger YTD"}
+   "030" {:transaction "NA" :level "Status" :description "Current Ledger"}
+   "037" {:transaction "NA" :level "Status" :description "ACH Net Position"}
+   "039" {:transaction "NA" :level "Status" :description "Opening Available Total Same-Day ACH DTC Deposit"}
+   "040" {:transaction "NA" :level "Status" :description "Opening Available"}
+   "041" {:transaction "NA" :level "Status" :description "Average Opening Available MTD"}
+   "042" {:transaction "NA" :level "Status" :description "Average Opening Available YTD"}
+   "043" {:transaction "NA" :level "Status" :description "Average Available – Previous Month"}
+   "044" {:transaction "NA" :level "Status" :description "Disbursing Opening Available Balance"}
+   "045" {:transaction "NA" :level "Status" :description "Closing Available"}
+   "050" {:transaction "NA" :level "Status" :description "Average Closing Available MTD"}
+   "051" {:transaction "NA" :level "Status" :description "Average Closing Available – Last Month"}
+   "054" {:transaction "NA" :level "Status" :description "Average Closing Available YTD – Last Month"}
+   "055" {:transaction "NA" :level "Status" :description "Average Closing Available YTD"}
+   "056" {:transaction "NA" :level "Status" :description "Loan Balance"}
+   "057" {:transaction "NA" :level "Status" :description "Total Investment Position"}
+   "059" {:transaction "NA" :level "Status" :description "Current Available (CRS Supressed)"}
+   "060" {:transaction "NA" :level "Status" :description "Current Available"}
+   "061" {:transaction "NA" :level "Status" :description "Average Current Available MTD"}
+   "062" {:transaction "NA" :level "Status" :description "Average Current Available YTD"}
+   "063" {:transaction "NA" :level "Status" :description "Total Float"}
+   "065" {:transaction "NA" :level "Status" :description "Target Balance"}
+   "066" {:transaction "NA" :level "Status" :description "Adjusted Balance"}
+   "067" {:transaction "NA" :level "Status" :description "Adjusted Balance MTD"}
+   "068" {:transaction "NA" :level "Status" :description "Adjusted Balance YTD"}
+   "070" {:transaction "NA" :level "Status" :description "0-Day Float"}
+   "072" {:transaction "NA" :level "Status" :description "1-Day Float"}
+   "073" {:transaction "NA" :level "Status" :description "Float Adjustment"}
+   "074" {:transaction "NA" :level "Status" :description "2 or More Days Float"}
+   "075" {:transaction "NA" :level "Status" :description "3 or More Days Float"}
+   "076" {:transaction "NA" :level "Status" :description "Adjustment to Balances"}
+   "077" {:transaction "NA" :level "Status" :description "Average Adjustment to Balances MTD"}
+   "078" {:transaction "NA" :level "Status" :description "Average Adjustment to Balances YTD"}
+   "079" {:transaction "NA" :level "Status" :description "4-Day Float"}
+   "080" {:transaction "NA" :level "Status" :description "5-Day Float"}
+   "081" {:transaction "NA" :level "Status" :description "6-Day Float"}
+   "082" {:transaction "NA" :level "Status" :description "Average 1-Day Float MTD"}
+   "083" {:transaction "NA" :level "Status" :description "Average 1-Day Float YTD"}
+   "084" {:transaction "NA" :level "Status" :description "Average 2-Day Float MTD"}
+   "085" {:transaction "NA" :level "Status" :description "Average 2-Day Float YTD"}
+   "086" {:transaction "NA" :level "Status" :description "Transfer Calculation"}
+   
+   ;; Summary and Detail Credits
+   "100" {:transaction "CR" :level "Summary" :description "Total Credits"}
+   "101" {:transaction "CR" :level "Summary" :description "Total Credit Amount MTD"}
+   "105" {:transaction "CR" :level "Summary" :description "Credits Not Detailed"}
+   "106" {:transaction "CR" :level "Summary" :description "Deposits Subject to Float"}
+   "107" {:transaction "CR" :level "Summary" :description "Total Adjustment Credits YTD"}
+   "108" {:transaction "CR" :level "Detail" :description "Credit (Any Type)"}
+   "109" {:transaction "CR" :level "Summary" :description "Current Day Total Lockbox Deposits"}
 
+   ;; Lockbox – Related Type Codes
+   "110" {:transaction "CR" :level "Summary" :description "Total Lockbox Deposits"}
+   "115" {:transaction "CR" :level "Detail" :description "Lockbox Deposit"}
+   "116" {:transaction "CR" :level "Detail" :description "Item in Lockbox Deposit"}
+   "118" {:transaction "CR" :level "Detail" :description "Lockbox Adjustment Credit"}
+   "120" {:transaction "CR" :level "Summary" :description "EDI* Transaction Credit"}
+   "121" {:transaction "CR" :level "Detail" :description "EDI Transaction Credit"}
+   "122" {:transaction "CR" :level "Detail" :description "EDIBANX Credit Received"}
+   "123" {:transaction "CR" :level "Detail" :description "EDIBANX Credit Return"}
+   
+   ;; Concentration – Related Type Codes
+   "130" {:transaction "CR" :level "Summary" :description "Total Concentration Credits"}
+   "131" {:transaction "CR" :level "Summary" :description "Total DTC Credits"}
+   "135" {:transaction "CR" :level "Detail" :description "DTC Concentration Credit"}
+   "136" {:transaction "CR" :level "Detail" :description "Item in DTC Deposit"}
+   "140" {:transaction "CR" :level "Summary" :description "Total ACH Credits"}
+   "142" {:transaction "CR" :level "Detail" :description "ACH Credit Received"}
+   "143" {:transaction "CR" :level "Detail" :description "Item in ACH Deposit"}
+   "145" {:transaction "CR" :level "Detail" :description "ACH Concentration Credit"}
+   "146" {:transaction "CR" :level "Summary" :description "Total Bank Card Deposits"}
+   "147" {:transaction "CR" :level "Detail" :description "Individual Bank Card Deposit"}
+   
+   ;; Preauthorized and ACH – Related Type Codes
+   "150" {:transaction "CR" :level "Summary" :description "Total Preauthorized Payment Credits"}
+   "155" {:transaction "CR" :level "Detail" :description "Preauthorized Draft Credit"}
+   "156" {:transaction "CR" :level "Detail" :description "Item in PAC Deposit"}
+   "160" {:transaction "CR" :level "Summary" :description "Total ACH Disbursing Funding Credits"}
+   "162" {:transaction "CR" :level "Summary" :description "Corporate Trade Payment Settlement"}
+   "163" {:transaction "CR" :level "Summary" :description "Corporate Trade Payment Credits"}
+   "164" {:transaction "CR" :level "Detail" :description "Corporate Trade Payment Credit"}
+   "165" {:transaction "CR" :level "Detail" :description "Preauthorized ACH Credit"}
+   "166" {:transaction "CR" :level "Detail" :description "ACH Settlement"}
+   "167" {:transaction "CR" :level "Summary" :description "ACH Settlement Credits"}
+   "168" {:transaction "CR" :level "Detail" :description "ACH Return Item or Adjustment Settlement"}
+   "169" {:transaction "CR" :level "Detail" :description "Miscellaneous ACH Credit"}
+   
+   ;; Other Deposits – Related Type Codes
+   "170" {:transaction "CR" :level "Summary" :description "Total Other Check Deposits"}
+   "171" {:transaction "CR" :level "Detail" :description "Individual Loan Deposit"}
+   "172" {:transaction "CR" :level "Detail" :description "Deposit Correction"}
+   "173" {:transaction "CR" :level "Detail" :description "Bank-Prepared Deposit"}
+   "174" {:transaction "CR" :level "Detail" :description "Other Deposit"}
+   "175" {:transaction "CR" :level "Detail" :description "Check Deposit Package"}
+   "176" {:transaction "CR" :level "Detail" :description "Re-presented Check Deposit"}
+   "178" {:transaction "CR" :level "Summary" :description "List Post Credits"}
+   "180" {:transaction "CR" :level "Summary" :description "Total Loan Proceeds"}
+   "182" {:transaction "CR" :level "Summary" :description "Total Bank-Prepared Deposits"}
+   "184" {:transaction "CR" :level "Detail" :description "Draft Deposit"}
+   "185" {:transaction "CR" :level "Summary" :description "Total Miscellaneous Deposits"}
+   "186" {:transaction "CR" :level "Summary" :description "Total Cash Letter Credits"}
+   "187" {:transaction "CR" :level "Detail" :description "Cash Letter Credit"}
+   "188" {:transaction "CR" :level "Summary" :description "Total Cash Letter Adjustments"}
+   "189" {:transaction "CR" :level "Detail" :description "Cash Letter Adjustment"}
+   
+   ;; Money Transfer – Related Type Codes
+   "190" {:transaction "CR" :level "Summary" :description "Total Incoming Money Transfers"}
+   "191" {:transaction "CR" :level "Detail" :description "Individual Incoming Internal Money Transfer"}
+   "195" {:transaction "CR" :level "Detail" :description "Incoming Money Transfer"}
+   "196" {:transaction "CR" :level "Detail" :description "Money Transfer Adjustment"}
+   "198" {:transaction "CR" :level "Detail" :description "Compensation"}
+   "200" {:transaction "CR" :level "Summary" :description "Total Automatic Transfer Credits"}
+   "201" {:transaction "CR" :level "Detail" :description "Individual Automatic Transfer Credit"}
+   "202" {:transaction "CR" :level "Detail" :description "Bond Operations Credit"}
+   "205" {:transaction "CR" :level "Summary" :description "Total Book Transfer Credits"}
+   "206" {:transaction "CR" :level "Detail" :description "Book Transfer Credit"}
+   "207" {:transaction "CR" :level "Summary" :description "Total International Money Transfer Credits"}
+   "208" {:transaction "CR" :level "Detail" :description "Individual International Money Transfer Credit"}
+   "210" {:transaction "CR" :level "Summary" :description "Total International Credits"}
+   "212" {:transaction "CR" :level "Detail" :description "Foreign Letter of Credit"}
+   "213" {:transaction "CR" :level "Detail" :description "Letter of Credit"}
+   "214" {:transaction "CR" :level "Detail" :description "Foreign Exchange of Credit"}
+   "215" {:transaction "CR" :level "Summary" :description "Total Letters of Credit"}
+   "216" {:transaction "CR" :level "Detail" :description "Foreign Remittance Credit"}
+   "218" {:transaction "CR" :level "Detail" :description "Foreign Collection Credit"}
+   "221" {:transaction "CR" :level "Detail" :description "Foreign Check Purchase"}
+   "222" {:transaction "CR" :level "Detail" :description "Foreign Checks Deposited"}
+   "224" {:transaction "CR" :level "Detail" :description "Commission"}
+   "226" {:transaction "CR" :level "Detail" :description "International Money Market Trading"}
+   "227" {:transaction "CR" :level "Detail" :description "Standing Order"}
+   "229" {:transaction "CR" :level "Detail" :description "Miscellaneous International Credit"}
 
-; Summary and Detail Credits
-100 {:txn "CR" :level "Summary" :description "Total Credits"}
-101 {:txn "CR" :level "Summary" :description "Total Credit Amount MTD"}
-105 {:txn "CR" :level "Summary" :description "Credits Not Detailed"}
-106 {:txn "CR" :level "Summary" :description "Deposits Subject to Float"}
-107 {:txn "CR" :level "Summary" :description "Total Adjustment Credits YTD"}
-108 {:txn "CR" :level "Detail" :description "Credit (Any Type)"}
-109 {:txn "CR" :level "Summary" :description "Current Day Total Lockbox Deposits"}
-
-; Lockbox – Related Type Codes
-110 {:txn "CR" :level "Summary" :description "Total Lockbox Deposits"}
-115 {:txn "CR" :level "Detail" :description "Lockbox Deposit"}
-116 {:txn "CR" :level "Detail" :description "Item in Lockbox Deposit"}
-118 {:txn "CR" :level "Detail" :description "Lockbox Adjustment Credit"}
-120 {:txn "CR" :level "Summary" :description "EDI* Transaction Credit"}
-121 {:txn "CR" :level "Detail" :description "EDI Transaction Credit"}
-122 {:txn "CR" :level "Detail" :description "EDIBANX Credit Received"}
-123 {:txn "CR" :level "Detail" :description "EDIBANX Credit Return"}
-
-; Concentration – Related Type Codes Type Code Transaction Level
-130 {:txn "CR" :level "Summary" :description "Total Concentration Credits"}
-131 {:txn "CR" :level "Summary" :description "Total DTC Credits"}
-135 {:txn "CR" :level "Detail" :description "DTC Concentration Credit"}
-136 {:txn "CR" :level "Detail" :description "Item in DTC Deposit"}
-140 {:txn "CR" :level "Summary" :description "Total ACH Credits"}
-142 {:txn "CR" :level "Detail" :description "ACH Credit Received"}
-143 {:txn "CR" :level "Detail" :description "Item in ACH Deposit"}
-145 {:txn "CR" :level "Detail" :description "ACH Concentration Credit"}
-146 {:txn "CR" :level "Summary" :description "Total Bank Card Deposits"}
-147 {:txn "CR" :level "Detail" :description "Individual Bank Card Deposit"}
-
-; Preauthorized and ACH – Related Type Codes
-150 {:txn "CR" :level "Summary" :description "Total Preauthorized Payment Credits"}
-155 {:txn "CR" :level "Detail" :description "Preauthorized Draft Credit"}
-156 {:txn "CR" :level "Detail" :description "Item in PAC Deposit"}
-160 {:txn "CR" :level "Summary" :description "Total ACH Disbursing Funding Credits"}
-162 {:txn "CR" :level "Summary" :description "Corporate Trade Payment Settlement"}
-163 {:txn "CR" :level "Summary" :description "Corporate Trade Payment Credits"}
-164 {:txn "CR" :level "Detail" :description "Corporate Trade Payment Credit"}
-165 {:txn "CR" :level "Detail" :description "Preauthorized ACH Credit"}
-166 {:txn "CR" :level "Detail" :description "ACH Settlement"}
-167 {:txn "CR" :level "Summary" :description "ACH Settlement Credits"}
-168 {:txn "CR" :level "Detail" :description "ACH Return Item or Adjustment Settlement"}
-169 {:txn "CR" :level "Detail" :description "Miscellaneous ACH Credit"}
-
-; Other Deposits – Related Type Codes
-170 {:txn "CR" :level "Summary" :description "Total Other Check Deposits"}
-171 {:txn "CR" :level "Detail" :description "Individual Loan Deposit"}
-172 {:txn "CR" :level "Detail" :description "Deposit Correction"}
-173 {:txn "CR" :level "Detail" :description "Bank-Prepared Deposit"}
-174 {:txn "CR" :level "Detail" :description "Other Deposit"}
-175 {:txn "CR" :level "Detail" :description "Check Deposit Package"}
-176 {:txn "CR" :level "Detail" :description "Re-presented Check Deposit"}
-178 {:txn "CR" :level "Summary" :description "List Post Credits"}
-180 {:txn "CR" :level "Summary" :description "Total Loan Proceeds"}
-
-182 {:txn "CR" :level "Summary" :description "Total Bank-Prepared Deposits"}
-184 {:txn "CR" :level "Detail" :description "Draft Deposit"}
-185 {:txn "CR" :level "Summary" :description "Total Miscellaneous Deposits"}
-186 {:txn "CR" :level "Summary" :description "Total Cash Letter Credits"}
-187 {:txn "CR" :level "Detail" :description "Cash Letter Credit"}
-188 {:txn "CR" :level "Summary" :description "Total Cash Letter Adjustments"}
-189 {:txn "CR" :level "Detail" :description "Cash Letter Adjustment"}
-
-; Money Transfer – Related Type Codes
-190 {:txn "CR" :level "Summary" :description "Total Incoming Money Transfers"}
-191 {:txn "CR" :level "Detail" :description "Individual Incoming Internal Money Transfer"}
-195 {:txn "CR" :level "Detail" :description "Incoming Money Transfer"}
-196 {:txn "CR" :level "Detail" :description "Money Transfer Adjustment"}
-198 {:txn "CR" :level "Detail" :description "Compensation"}
-200 {:txn "CR" :level "Summary" :description "Total Automatic Transfer Credits"}
-201 {:txn "CR" :level "Detail" :description "Individual Automatic Transfer Credit"}
-202 {:txn "CR" :level "Detail" :description "Bond Operations Credit"}
-205 {:txn "CR" :level "Summary" :description "Total Book Transfer Credits"}
-206 {:txn "CR" :level "Detail" :description "Book Transfer Credit"}
-207 {:txn "CR" :level "Summary" :description "Total International Money Transfer Credits"}
-208 {:txn "CR" :level "Detail" :description "Individual International Money Transfer Credit"}
-210 {:txn "CR" :level "Summary" :description "Total International Credits"}
-212 {:txn "CR" :level "Detail" :description "Foreign Letter of Credit"}
-213 {:txn "CR" :level "Detail" :description "Letter of Credit"}
-
-214 {:txn "CR" :level "Detail" :description "Foreign Exchange of Credit"}
-215 {:txn "CR" :level "Summary" :description "Total Letters of Credit"}
-216 {:txn "CR" :level "Detail" :description "Foreign Remittance Credit"}
-218 {:txn "CR" :level "Detail" :description "Foreign Collection Credit"}
-221 {:txn "CR" :level "Detail" :description "Foreign Check Purchase"}
-222 {:txn "CR" :level "Detail" :description "Foreign Checks Deposited"}
-224 {:txn "CR" :level "Detail" :description "Commission"}
-226 {:txn "CR" :level "Detail" :description "International Money Market Trading"}
-227 {:txn "CR" :level "Detail" :description "Standing Order"}
-229 {:txn "CR" :level "Detail" :description "Miscellaneous International Credit"}
-
-; Security – Related Type Codes
-230 {:txn "CR" :level "Summary" :description "Total Security Credits"}
-231 {:txn "CR" :level "Summary" :description "Total Collection Credits"}
-232 {:txn "CR" :level "Detail" :description "Sale of Debt Security"}
-233 {:txn "CR" :level "Detail" :description "Securities Sold"}
-234 {:txn "CR" :level "Detail" :description "Sale of Equity Security"}
-235 {:txn "CR" :level "Detail" :description "Matured Reverse Repurchase Order"}
-236 {:txn "CR" :level "Detail" :description "Maturity of Debt Security"}
-237 {:txn "CR" :level "Detail" :description "Individual Collection Credit"}
-238 {:txn "CR" :level "Detail" :description "Collection of Dividends"}
-239 {:txn "CR" :level "Summary" :description "Total Bankers’ Acceptance Credits"}
-240 {:txn "CR" :level "Detail" :description "Coupon Collections – Banks"}
-241 {:txn "CR" :level "Detail" :description "Bankers’ Acceptances"}
-242 {:txn "CR" :level "Detail" :description "Collection of Interest Income"}
-243 {:txn "CR" :level "Detail" :description "Matured Fed Funds Purchased"}
-244 {:txn "CR" :level "Detail" :description "Interest/Matured Principal Payment"}
-245 {:txn "CR" :level "Summary" :description "Monthly Dividends"}
-246 {:txn "CR" :level "Detail" :description "Commercial Paper"}
-247 {:txn "CR" :level "Detail" :description "Capital Change"}
-248 {:txn "CR" :level "Detail" :description "Savings Bonds Sales Adjustment"}
-249 {:txn "CR" :level "Detail" :description "Miscellaneous Security Credit"}
-250 {:txn "CR" :level "Summary" :description "Total Checks Posted and Returned"}
-251 {:txn "CR" :level "Summary" :description "Total Debit Reversals"}
-252 {:txn "CR" :level "Detail" :description "Debit Reversal"}
-254 {:txn "CR" :level "Detail" :description "Posting Error Correction Credit"}
-255 {:txn "CR" :level "Detail" :description "Check Posted and Returned"}
-256 {:txn "CR" :level "Summary" :description "Total ACH Return Items"}
-257 {:txn "CR" :level "Detail" :description "Individual ACH Return Item"}
-258 {:txn "CR" :level "Detail" :description "ACH Reversal Credit"}
-260 {:txn "CR" :level "Summary" :description "Total Rejected Credits"}
-261 {:txn "CR" :level "Detail" :description "Individual Rejected Credit"}
-263 {:txn "CR" :level "Detail" :description "Overdraft"}
-266 {:txn "CR" :level "Detail" :description "Return Item"}
-268 {:txn "CR" :level "Detail" :description "Return Item Adjustment"}
-
-; ZBA and Disbursing – Related Type Codes
-270 {:txn "CR" :level "Summary" :description "Total ZBA Credits"}
-271 {:txn "CR" :level "Summary" :description "Net Zero-Balance Amount"}
-274 {:txn "CR" :level "Detail" :description "Cumulative** ZBA or Disbursement Credits"}
-275 {:txn "CR" :level "Detail" :description "ZBA Credit"}
-276 {:txn "CR" :level "Detail" :description "ZBA Float Adjustment"}
-277 {:txn "CR" :level "Detail" :description "ZBA Credit Transfer"}
-278 {:txn "CR" :level "Detail" :description "ZBA Credit Adjustment"}
-280 {:txn "CR" :level "Summary" :description "Total Controlled Disbursing Credits"}
-281 {:txn "CR" :level "Detail" :description "Individual Controlled Disbursing Credit"}
-285 {:txn "CR" :level "Summary" :description "Total DTC Disbursing Credits"}
-286 {:txn "CR" :level "Detail" :description "Individual DTC Disbursing Credit"}
-
-; Other (Expansion) Type Codes
-294 {:txn "CR" :level "Summary" :description "Total ATM Credits"}
-295 {:txn "CR" :level "Detail" :description "ATM Credit"}
-301 {:txn "CR" :level "Detail" :description "Commercial Deposit"}
-302 {:txn "CR" :level "Summary" :description "Correspondent Bank Deposit"}
-303 {:txn "CR" :level "Summary" :description "Total Wire Transfers In – FF"}
-304 {:txn "CR" :level "Summary" :description "Total Wire Transfers In – CHF"}
-305 {:txn "CR" :level "Summary" :description "Total Fed Funds Sold"}
-306 {:txn "CR" :level "Detail" :description "Fed Funds Sold"}
-307 {:txn "CR" :level "Summary" :description "Total Trust Credits"}
-308 {:txn "CR" :level "Detail" :description "Trust Credit"}
-309 {:txn "CR" :level "Summary" :description "Total Value - Dated Funds"}
-310 {:txn "CR" :level "Summary" :description "Total Commercial Deposits"}
-315 {:txn "CR" :level "Summary" :description "Total International Credits – FF"}
-316 {:txn "CR" :level "Summary" :description "Total International Credits – CHF"}
-318 {:txn "CR" :level "Summary" :description "Total Foreign Check Purchased"}
-319 {:txn "CR" :level "Summary" :description "Late Deposit"}
-320 {:txn "CR" :level "Summary" :description "Total Securities Sold – FF"}
-321 {:txn "CR" :level "Summary" :description "Total Securities Sold – CHF"}
-324 {:txn "CR" :level "Summary" :description "Total Securities Matured – FF"}
-325 {:txn "CR" :level "Summary" :description "Total Securities Matured – CHF"}
-326 {:txn "CR" :level "Summary" :description "Total Securities Interest"}
-327 {:txn "CR" :level "Summary" :description "Total Securities Matured"}
-328 {:txn "CR" :level "Summary" :description "Total Securities Interest – FF"}
-329 {:txn "CR" :level "Summary" :description "Total Securities Interest – CHF"}
-330 {:txn "CR" :level "Summary" :description "Total Escrow Credits"}
-331 {:txn "CR" :level "Detail" :description "Individual Escrow Credit"}
-332 {:txn "CR" :level "Summary" :description "Total Miscellaneous Securities Credits – FF"}
-336 {:txn "CR" :level "Summary" :description "Total Miscellaneous Securities Credits – CHF"}
-338 {:txn "CR" :level "Summary" :description "Total Securities Sold"}
-340 {:txn "CR" :level "Summary" :description "Total Broker Deposits"}
-341 {:txn "CR" :level "Summary" :description "Total Broker Deposits – FF"}
-342 {:txn "CR" :level "Detail" :description "Broker Deposit"}
-343 {:txn "CR" :level "Summary" :description "Total Broker Deposits – CHF"}
-344 {:txn "CR" :level "Detail" :description "Individual Back Value Credit"}
-345 {:txn "CR" :level "Detail" :description "Item in Brokers Deposit"}
-346 {:txn "CR" :level "Detail" :description "Sweep Interest Income"}
-347 {:txn "CR" :level "Detail" :description "Sweep Principal Sell"}
-348 {:txn "CR" :level "Detail" :description "Futures Credit"}
-349 {:txn "CR" :level "Detail" :description "Principal Payments Credit"}
-350 {:txn "CR" :level "Summary" :description "Investment Sold"}
-351 {:txn "CR" :level "Detail" :description "Individual Investment Sold"}
-352 {:txn "CR" :level "Summary" :description "Total Cash Center Credits"}
-353 {:txn "CR" :level "Detail" :description "Cash Center Credit"}
-354 {:txn "CR" :level "Detail" :description "Interest Credit"}
-355 {:txn "CR" :level "Summary" :description "Investment Interest"}
-356 {:txn "CR" :level "Summary" :description "Total Credit Adjustment"}
-357 {:txn "CR" :level "Detail" :description "Credit Adjustment"}
-358 {:txn "CR" :level "Detail" :description "YTD Adjustment Credit"}
-359 {:txn "CR" :level "Detail" :description "Interest Adjustment Credit"}
-360 {:txn "CR" :level "Summary" :description "Total Credits Less Wire Transfer and Returned Checks"}
-361 {:txn "CR" :level "Summary" :description "Grand Total Credits Less Grand Total Debits"}
-
-; Correspondent Bank and Federal Reserve – Related Type Codes
-362 {:txn "CR" :level "Detail" :description "Correspondent Collection"}
-363 {:txn "CR" :level "Detail" :description "Correspondent Collection Adjustment"}
-364 {:txn "CR" :level "Detail" :description "Loan Participation"}
-366 {:txn "CR" :level "Detail" :description "Currency and Coin Deposited"}
-367 {:txn "CR" :level "Detail" :description "Food Stamp Letter"}
-368 {:txn "CR" :level "Detail" :description "Food Stamp Adjustment"}
-369 {:txn "CR" :level "Detail" :description "Clearing Settlement Credit"}
-370 {:txn "CR" :level "Summary" :description "Total Back Value Credits"}
-372 {:txn "CR" :level "Detail" :description "Back Value Adjustment"}
-373 {:txn "CR" :level "Detail" :description "Customer Payroll"}
-374 {:txn "CR" :level "Detail" :description "FRB Statement Recap"}
-376 {:txn "CR" :level "Detail" :description "Savings Bond Letter or Adjustment"}
-377 {:txn "CR" :level "Detail" :description "Treasury Tax and Loan Credit"}
-378 {:txn "CR" :level "Detail" :description "Transfer of Treasury Credit"}
-379 {:txn "CR" :level "Detail" :description "FRB Government Checks Cash Letter Credit"}
-381 {:txn "CR" :level "Detail" :description "FRB Government Check Adjustment"}
-382 {:txn "CR" :level "Detail" :description "FRB Postal Money Order Credit"}
-383 {:txn "CR" :level "Detail" :description "FRB Postal Money Order Adjustment"}
-384 {:txn "CR" :level "Detail" :description "FRB Cash Letter Auto Charge Credit"}
-385 {:txn "CR" :level "Summary" :description "Total Universal Credits"}
-386 {:txn "CR" :level "Detail" :description "FRB Cash Letter Auto Charge Adjustment"}
-387 {:txn "CR" :level "Detail" :description "FRB Fine-Sort Cash Letter Credit"}
-388 {:txn "CR" :level "Detail" :description "FRB Fine-Sort Adjustment"}
-389 {:txn "CR" :level "Summary" :description "Total Freight Payment Credits"}
-
-; {:txn "Miscellaneous" :level "Type" :description "Codes"}
-390 {:txn "CR" :level "Summary" :description "Total Miscellaneous Credits"}
-391 {:txn "CR" :level "Detail" :description "Universal Credit"}
-392 {:txn "CR" :level "Detail" :description "Freight Payment Credit"}
-393 {:txn "CR" :level "Detail" :description "Itemized Credit Over $10,000"}
-394 {:txn "CR" :level "Detail" :description "Cumulative** Credits"}
-395 {:txn "CR" :level "Detail" :description "Check Reversal"}
-397 {:txn "CR" :level "Detail" :description "Float Adjustment"}
-398 {:txn "CR" :level "Detail" :description "Miscellaneous Fee Refund"}
-399 {:txn "CR" :level "Detail" :description "Miscellaneous Credit"}
-
-; Summary and Detail Debits
-400 {:txn "DB" :level "Summary" :description "Total Debits"}
-401 {:txn "DB" :level "Summary" :description "Total Debit Amount MTD"}
-403 {:txn "DB" :level "Summary" :description "Today’s Total Debits"}
-405 {:txn "DB" :level "Summary" :description "Total Debit Less Wire Transfers and Charge- Backs"}
-406 {:txn "DB" :level "Summary" :description "Debits not Detailed"}
-408 {:txn "DB" :level "Detail" :description "Float Adjustment"}
-409 {:txn "DB" :level "Detail" :description "Debit (Any Type)"}
-410 {:txn "DB" :level "Summary" :description "Total YTD Adjustment"}
-412 {:txn "DB" :level "Summary" :description "Total Debits (Excluding Returned Items)"}
-
-; {:txn "Lockbox" :level "Related" :description "– Type Codes"}
-415 {:txn "DB" :level "Detail" :description "Lockbox Debit"}
-416 {:txn "DB" :level "Summary" :description "Total Lockbox Debits"}
-420 {:txn "DB" :level "Summary" :description "EDI Transaction Debits"}
-421 {:txn "DB" :level "Detail" :description "EDI Transaction Debit"}
-422 {:txn "DB" :level "Detail" :description "EDIBANX Settlement Debit"}
-423 {:txn "DB" :level "Detail" :description "EDIBANX Return Item Debit"}
-
-; Payable-Through Draft – Related Type Codes
-430 {:txn "DB" :level "Summary" :description "Total Payable–Through Drafts"}
-435 {:txn "DB" :level "Detail" :description "Payable–Through Draft"}
-
-; {:txn "ACH" :level "–" :description "Related Type Codes"}
-445 {:txn "DB" :level "Detail" :description "ACH Concentration Debit"}
-446 {:txn "DB" :level "Summary" :description "Total ACH Disbursement Funding Debits"}
-447 {:txn "DB" :level "Detail" :description "ACH Disbursement Funding Debit"}
-450 {:txn "DB" :level "Summary" :description "Total ACH Debits"}
-451 {:txn "DB" :level "Detail" :description "ACH Debit Received"}
-452 {:txn "DB" :level "Detail" :description "Item in ACH Disbursement or Debit"}
-455 {:txn "DB" :level "Detail" :description "Preauthorized ACH Debit"}
-462 {:txn "DB" :level "Detail" :description "Account Holder Initiated ACH Debit"}
-463 {:txn "DB" :level "Summary" :description "Corporate Trade Payment Debits"}
-464 {:txn "DB" :level "Detail" :description "Corporate Trade Payment Debit"}
-465 {:txn "DB" :level "Summary" :description "Corporate Trade Payment Settlement"}
-466 {:txn "DB" :level "Detail" :description "ACH Settlement"}
-467 {:txn "DB" :level "Summary" :description "ACH Settlement Debits"}
-468 {:txn "DB" :level "Detail" :description "ACH Return Item or Adjustment Settlement"}
-469 {:txn "DB" :level "Detail" :description "Miscellaneous ACH Debit"}
-
-; {:txn "Checks" :level "Paid" :description "– Related Type Codes"}
-470 {:txn "DB" :level "Summary" :description "Total Check Paid"}
-471 {:txn "DB" :level "Summary" :description "Total Check Paid – Cumulative MTD"}
-472 {:txn "DB" :level "Detail" :description "Cumulative** Checks Paid"}
-474 {:txn "DB" :level "Detail" :description "Certified Check Debit"}
-475 {:txn "DB" :level "Detail" :description "Check Paid"}
-476 {:txn "DB" :level "Detail" :description "Federal Reserve Bank Letter Debit"}
-477 {:txn "DB" :level "Detail" :description "Bank Originated Debit"}
-478 {:txn "DB" :level "Summary" :description "List Post Debits"}
-479 {:txn "DB" :level "Detail" :description "List Post Debit"}
-480 {:txn "DB" :level "Summary" :description "Total Loan Payments"}
-481 {:txn "DB" :level "Detail" :description "Individual Loan Payment"}
-482 {:txn "DB" :level "Summary" :description "Total Bank-Originated Debits"}
-484 {:txn "DB" :level "Detail" :description "Draft"}
-485 {:txn "DB" :level "Detail" :description "DTC Debit"}
-486 {:txn "DB" :level "Summary" :description "Total Cash Letter Debits"}
-487 {:txn "DB" :level "Detail" :description "Cash Letter Debit"}
-489 {:txn "DB" :level "Detail" :description "Cash Letter Adjustment"}
-
-; {:txn "Money" :level "Transfer" :description "– Related Type Codes"}
-490 {:txn "DB" :level "Summary" :description "Total Outgoing Money Transfers"}
-491 {:txn "DB" :level "Detail" :description "Individual Outgoing Internal Money Transfer"}
-493 {:txn "DB" :level "Detail" :description "Customer Terminal Initiated Money Transfer"}
-495 {:txn "DB" :level "Detail" :description "Outgoing Money Transfer"}
-496 {:txn "DB" :level "Detail" :description "Money Transfer Adjustment"}
-498 {:txn "DB" :level "Detail" :description "Compensation"}
-500 {:txn "DB" :level "Summary" :description "Total Automatic Transfer Debits"}
-501 {:txn "DB" :level "Detail" :description "Individual Automatic Transfer Debit"}
-502 {:txn "DB" :level "Detail" :description "Bond Operations Debit"}
-505 {:txn "DB" :level "Summary" :description "Total Book Transfer Debits"}
-506 {:txn "DB" :level "Detail" :description "Book Transfer Debit"}
-507 {:txn "DB" :level "Summary" :description "Total International Money Transfer Debits"}
-508 {:txn "DB" :level "Detail" :description "Individual International Money Transfer Debits"}
-510 {:txn "DB" :level "Summary" :description "Total International Debits"}
-512 {:txn "DB" :level "Detail" :description "Letter of Credit Debit"}
-513 {:txn "DB" :level "Detail" :description "Letter of Credit"}
-514 {:txn "DB" :level "Detail" :description "Foreign Exchange Debit"}
-515 {:txn "DB" :level "Summary" :description "Total Letters of Credit"}
-516 {:txn "DB" :level "Detail" :description "Foreign Remittance Debit"}
-518 {:txn "DB" :level "Detail" :description "Foreign Collection Debit"}
-522 {:txn "DB" :level "Detail" :description "Foreign Checks Paid"}
-524 {:txn "DB" :level "Detail" :description "Commission"}
-526 {:txn "DB" :level "Detail" :description "International Money Market Trading"}
-527 {:txn "DB" :level "Detail" :description "Standing Order"}
-529 {:txn "DB" :level "Detail" :description "Miscellaneous International Debit"}
-
-; {:txn "Security" :level "–" :description "Related Type Codes"}
-530 {:txn "DB" :level "Summary" :description "Total Security Debits"}
-531 {:txn "DB" :level "Detail" :description "Securities Purchased"}
-532 {:txn "DB" :level "Summary" :description "Total Amount of Securities Purchased"}
-533 {:txn "DB" :level "Detail" :description "Security Collection Debit"}
-534 {:txn "DB" :level "Summary" :description "Total Miscellaneous Securities DB – FF"}
-535 {:txn "DB" :level "Detail" :description "Purchase of Equity Securities"}
-536 {:txn "DB" :level "Summary" :description "Total Miscellaneous Securities Debit – CHF"}
-537 {:txn "DB" :level "Summary" :description "Total Collection Debit"}
-538 {:txn "DB" :level "Detail" :description "Matured Repurchase Order"}
-539 {:txn "DB" :level "Summary" :description "Total Bankers’ Acceptances Debit"}
-540 {:txn "DB" :level "Detail" :description "Coupon Collection Debit"}
-541 {:txn "DB" :level "Detail" :description "Bankers’ Acceptances"}
-542 {:txn "DB" :level "Detail" :description "Purchase of Debt Securities"}
-543 {:txn "DB" :level "Detail" :description "Domestic Collection"}
-544 {:txn "DB" :level "Detail" :description "Interest/Matured Principal Payment"}
-546 {:txn "DB" :level "Detail" :description "Commercial paper"}
-547 {:txn "DB" :level "Detail" :description "Capital Change"}
-548 {:txn "DB" :level "Detail" :description "Savings Bonds Sales Adjustment"}
-549 {:txn "DB" :level "Detail" :description "Miscellaneous Security Debit"}
-
-; {:txn "Deposited" :level "Items" :description "Returned – Related Type Codes"}
-550 {:txn "DB" :level "Summary" :description "Total Deposited Items Returned"}
-551 {:txn "DB" :level "Summary" :description "Total Credit Reversals"}
-552 {:txn "DB" :level "Detail" :description "Credit Reversal"}
-554 {:txn "DB" :level "Detail" :description "Posting Error Correction Debit"}
-555 {:txn "DB" :level "Detail" :description "Deposited Item Returned"}
-556 {:txn "DB" :level "Summary" :description "Total ACH Return Items"}
-557 {:txn "DB" :level "Detail" :description "Individual ACH Return Item"}
-558 {:txn "DB" :level "Detail" :description "ACH Reversal Debit"}
-560 {:txn "DB" :level "Summary" :description "Total Rejected Debits"}
-561 {:txn "DB" :level "Detail" :description "Individual Rejected Debit"}
-563 {:txn "DB" :level "Detail" :description "Overdraft"}
-564 {:txn "DB" :level "Detail" :description "Overdraft Fee"}
-566 {:txn "DB" :level "Detail" :description "Return Item"}
-567 {:txn "DB" :level "Detail" :description "Return Item Fee"}
-568 {:txn "DB" :level "Detail" :description "Return Item Adjustment"}
-
-; {:txn "ZBA" :level "and" :description "Disbursing – Related Type Codes"}
-570 {:txn "DB" :level "Summary" :description "Total ZBA Debits"}
-574 {:txn "DB" :level "Detail" :description "Cumulative ZBA Debits"}
-575 {:txn "DB" :level "Detail" :description "ZBA Debit"}
-577 {:txn "DB" :level "Detail" :description "ZBA Debit Transfer"}
-578 {:txn "DB" :level "Detail" :description "ZBA Debit Adjustment"}
-580 {:txn "DB" :level "Summary" :description "Total Controlled Disbursing Debits"}
-581 {:txn "DB" :level "Detail" :description "Individual Controlled Disbursing Debit"}
-583 {:txn "DB" :level "Summary" :description "Total Disbursing Checks Paid – Early Amount"}
-584 {:txn "DB" :level "Summary" :description "Total Disbursing Checks Paid – Later Amount"}
-585 {:txn "DB" :level "Summary" :description "Disbursing Funding Requirement"}
-586 {:txn "DB" :level "Summary" :description "FRB Presentment Estimate (Fed Estimate)"}
-587 {:txn "DB" :level "Summary" :description "Late Debits (After Notification)"}
-588 {:txn "DB" :level "Summary" :description "Total Disbursing Checks Paid-Last Amount"}
-
-; {:txn "Other" :level "(":description "Expansion) Type Codes"}
-590 {:txn "DB" :level "Summary" :description "Total DTC Debits"}
-594 {:txn "DB" :level "Summary" :description "Total ATM Debits"}
-595 {:txn "DB" :level "Detail" :description "ATM Debit"}
-596 {:txn "DB" :level "Summary" :description "Total APR Debits"}
-597 {:txn "DB" :level "Detail" :description "ARP Debit"}
-601 {:txn "DB" :level "Summary" :description "Estimated Total Disbursement"}
-602 {:txn "DB" :level "Summary" :description "Adjusted Total Disbursement"}
-610 {:txn "DB" :level "Summary" :description "Total Funds Required"}
-611 {:txn "DB" :level "Summary" :description "Total Wire Transfers Out- CHF"}
-612 {:txn "DB" :level "Summary" :description "Total Wire Transfers Out – FF"}
-613 {:txn "DB" :level "Summary" :description "Total International Debit – CHF"}
-614 {:txn "DB" :level "Summary" :description "Total International Debit – FF"}
-615 {:txn "DB" :level "Summary" :description "Total Federal Reserve Bank – Commercial Bank Debit"}
-616 {:txn "DB" :level "Detail" :description "Federal Reserve Bank – Commercial Bank Debit"}
-617 {:txn "DB" :level "Summary" :description "Total Securities Purchased – CHF"}
-618 {:txn "DB" :level "Summary" :description "Total Securities Purchased – FF"}
-621 {:txn "DB" :level "Summary" :description "Total Broker Debits – CHF"}
-622 {:txn "DB" :level "Detail" :description "Broker Debit"}
-623 {:txn "DB" :level "Summary" :description "Total Broker Debits – FF"}
-625 {:txn "DB" :level "Summary" :description "Total Broker Debits"}
-626 {:txn "DB" :level "Summary" :description "Total Fed Funds Purchased"}
-627 {:txn "DB" :level "Detail" :description "Fed Funds Purchased"}
-628 {:txn "DB" :level "Summary" :description "Total Cash Center Debits"}
-629 {:txn "DB" :level "Detail" :description "Cash Center Debit"}
-630 {:txn "DB" :level "Summary" :description "Total Debit Adjustments"}
-631 {:txn "DB" :level "Detail" :description "Debit Adjustment"}
-632 {:txn "DB" :level "Summary" :description "Total Trust Debits"}
-633 {:txn "DB" :level "Detail" :description "Trust Debit"}
-634 {:txn "DB" :level "Detail" :description "YTD Adjustment Debit"}
-640 {:txn "DB" :level "Summary" :description "Total Escrow Debits"}
-641 {:txn "DB" :level "Detail" :description "Individual Escrow Debit"}
-644 {:txn "DB" :level "Detail" :description "Individual Back Value Debit"}
-646 {:txn "DB" :level "Summary" :description "Transfer Calculation Debit"}
-650 {:txn "DB" :level "Summary" :description "Investments Purchased"}
-651 {:txn "DB" :level "Detail" :description "Individual Investment purchased"}
-654 {:txn "DB" :level "Detail" :description "Interest Debit"}
-655 {:txn "DB" :level "Summary" :description "Total Investment Interest Debits"}
-656 {:txn "DB" :level "Detail" :description "Sweep Principal Buy"}
-657 {:txn "DB" :level "Detail" :description "Futures Debit"}
-658 {:txn "DB" :level "Detail" :description "Principal Payments Debit"}
-659 {:txn "DB" :level "Detail" :description "Interest Adjustment Debit"}
-
-; {:txn "Correspondent" :level "Bank" :description "and Federal Reserve – Related Type Codes"}
-661 {:txn "DB" :level "Detail" :description "Account Analysis Fee"}
-662 {:txn "DB" :level "Detail" :description "Correspondent Collection Debit"}
-663 {:txn "DB" :level "Detail" :description "Correspondent Collection Adjustment"}
-664 {:txn "DB" :level "Detail" :description "Loan Participation"}
-665 {:txn "DB" :level "Summary" :description "Intercept Debits"}
-666 {:txn "DB" :level "Detail" :description "Currency and Coin Shipped"}
-667 {:txn "DB" :level "Detail" :description "Food Stamp Letter"}
-668 {:txn "DB" :level "Detail" :description "Food Stamp Adjustment"}
-669 {:txn "DB" :level "Detail" :description "Clearing Settlement Debit"}
-670 {:txn "DB" :level "Summary" :description "Total Back Value Debits"}
-672 {:txn "DB" :level "Detail" :description "Back Value Adjustment"}
-673 {:txn "DB" :level "Detail" :description "Customer Payroll"}
-674 {:txn "DB" :level "Detail" :description "FRB Statement Recap"}
-676 {:txn "DB" :level "Detail" :description "Savings Bond Letter or Adjustment"}
-
-677 {:txn "DB" :level "Detail" :description "Treasury Tax and Loan Debit"}
-678 {:txn "DB" :level "Detail" :description "Transfer of Treasury Debit"}
-679 {:txn "DB" :level "Detail" :description "FRB Government Checks Cash Letter Debit"}
-681 {:txn "DB" :level "Detail" :description "FRB Government Check Adjustment"}
-682 {:txn "DB" :level "Detail" :description "FRB Postal Money Order Debit"}
-683 {:txn "DB" :level "Detail" :description "FRB Postal Money Order Adjustment"}
-684 {:txn "DB" :level "Detail" :description "FRB Cash Letter Auto Charge Debit"}
-685 {:txn "DB" :level "Summary" :description "Total Universal Debits"}
-686 {:txn "DB" :level "Detail" :description "FRB Cash Letter Auto Charge Adjustment"}
-687 {:txn "DB" :level "Detail" :description "FRB Fine-Sort Cash Letter Debit"}
-688 {:txn "DB" :level "Detail" :description "FRB Fine-Sort Adjustment"}
-689 {:txn "DB" :level "Summary" :description "FRB Freight Payment Debits"}
-690 {:txn "DB" :level "Summary" :description "Total Miscellaneous Debits"}
-691 {:txn "DB" :level "Detail" :description "Universal Debit"}
-692 {:txn "DB" :level "Detail" :description "Freight Payment Debit"}
-693 {:txn "DB" :level "Detail" :description "Itemized Debit Over $10,000"}
-694 {:txn "DB" :level "Detail" :description "Deposit Reversal"}
-695 {:txn "DB" :level "Detail" :description "Deposit Correction Debit"}
-696 {:txn "DB" :level "Detail" :description "Regular Collection Debit"}
-697 {:txn "DB" :level "Detail" :description "Cumulative** Debits"}
-698 {:txn "DB" :level "Detail" :description "Miscellaneous Fees"}
-699 {:txn "DB" :level "Detail" :description "Miscellaneous Debit"}
-
-; {:txn "Loan" :level "Transactions-" :description "Related Type Codes"}
-701 {:txn "NA" :level "Status" :description "Principal Loan Balance"}
-703 {:txn "NA" :level "Status" :description "Available Commitment Amount"}
-705 {:txn "NA" :level "Status" :description "Payment Amount Due"}
-707 {:txn "NA" :level "Status" :description "Principal Amount Past Due"}
-709 {:txn "NA" :level "Status" :description "Interest Amount Past Due"}
-720 {:txn "CR" :level "Summary" :description "Total Loan Payment"}
-721 {:txn "CR" :level "Detail" :description "Amount Applied to Interest"}
-722 {:txn "CR" :level "Detail" :description "Amount Applied to Principal"}
-723 {:txn "CR" :level "Detail" :description "Amount Applied to Escrow"}
-724 {:txn "CR" :level "Detail" :description "Amount Applied to Late Charges"}
-725 {:txn "CR" :level "Detail" :description "Amount Applied to Buydown"}
-726 {:txn "CR" :level "Detail" :description "Amount Applied to Misc. Fees"}
-727 {:txn "CR" :level "Detail" :description "Amount Applied to Deferred Interest Detail"}
-728 {:txn "CR" :level "Detail" :description "Amount Applied to Service Charge"}
-
-760 {:txn "DB" :level "Summary" :description "Loan Disbursement Non-Monetary Information"}
-
-; Non-Monetary Information
-890 {:txn "NA" :level "Detail" :description "Contains Non-monetary Information"}
-})
+   ;; Security – Related Type Codes
+   "230" {:transaction "CR" :level "Summary" :description "Total Security Credits"}
+   "231" {:transaction "CR" :level "Summary" :description "Total Collection Credits"}
+   "232" {:transaction "CR" :level "Detail" :description "Sale of Debt Security"}
+   "233" {:transaction "CR" :level "Detail" :description "Securities Sold"}
+   "234" {:transaction "CR" :level "Detail" :description "Sale of Equity Security"}
+   "235" {:transaction "CR" :level "Detail" :description "Matured Reverse Repurchase Order"}
+   "236" {:transaction "CR" :level "Detail" :description "Maturity of Debt Security"}
+   "237" {:transaction "CR" :level "Detail" :description "Individual Collection Credit"}
+   "238" {:transaction "CR" :level "Detail" :description "Collection of Dividends"}
+   "239" {:transaction "CR" :level "Summary" :description "Total Bankers’ Acceptance Credits"}
+   "240" {:transaction "CR" :level "Detail" :description "Coupon Collections – Banks"}
+   "241" {:transaction "CR" :level "Detail" :description "Bankers’ Acceptances"}
+   "242" {:transaction "CR" :level "Detail" :description "Collection of Interest Income"}
+   "243" {:transaction "CR" :level "Detail" :description "Matured Fed Funds Purchased"}
+   "244" {:transaction "CR" :level "Detail" :description "Interest/Matured Principal Payment"}
+   "245" {:transaction "CR" :level "Summary" :description "Monthly Dividends"}
+   "246" {:transaction "CR" :level "Detail" :description "Commercial Paper"}
+   "247" {:transaction "CR" :level "Detail" :description "Capital Change"}
+   "248" {:transaction "CR" :level "Detail" :description "Savings Bonds Sales Adjustment"}
+   "249" {:transaction "CR" :level "Detail" :description "Miscellaneous Security Credit"}
+   "250" {:transaction "CR" :level "Summary" :description "Total Checks Posted and Returned"}
+   "251" {:transaction "CR" :level "Summary" :description "Total Debit Reversals"}
+   "252" {:transaction "CR" :level "Detail" :description "Debit Reversal"}
+   "254" {:transaction "CR" :level "Detail" :description "Posting Error Correction Credit"}
+   "255" {:transaction "CR" :level "Detail" :description "Check Posted and Returned"}
+   "256" {:transaction "CR" :level "Summary" :description "Total ACH Return Items"}
+   "257" {:transaction "CR" :level "Detail" :description "Individual ACH Return Item"}
+   "258" {:transaction "CR" :level "Detail" :description "ACH Reversal Credit"}
+   "260" {:transaction "CR" :level "Summary" :description "Total Rejected Credits"}
+   "261" {:transaction "CR" :level "Detail" :description "Individual Rejected Credit"}
+   "263" {:transaction "CR" :level "Detail" :description "Overdraft"}
+   "266" {:transaction "CR" :level "Detail" :description "Return Item"}
+   "268" {:transaction "CR" :level "Detail" :description "Return Item Adjustment"}
+   
+   ;; ZBA and Disbursing – Related Type Codes
+   "270" {:transaction "CR" :level "Summary" :description "Total ZBA Credits"}
+   "271" {:transaction "CR" :level "Summary" :description "Net Zero-Balance Amount"}
+   "274" {:transaction "CR" :level "Detail" :description "Cumulative** ZBA or Disbursement Credits"}
+   "275" {:transaction "CR" :level "Detail" :description "ZBA Credit"}
+   "276" {:transaction "CR" :level "Detail" :description "ZBA Float Adjustment"}
+   "277" {:transaction "CR" :level "Detail" :description "ZBA Credit Transfer"}
+   "278" {:transaction "CR" :level "Detail" :description "ZBA Credit Adjustment"}
+   "280" {:transaction "CR" :level "Summary" :description "Total Controlled Disbursing Credits"}
+   "281" {:transaction "CR" :level "Detail" :description "Individual Controlled Disbursing Credit"}
+   "285" {:transaction "CR" :level "Summary" :description "Total DTC Disbursing Credits"}
+   "286" {:transaction "CR" :level "Detail" :description "Individual DTC Disbursing Credit"}
+   
+   ;; Other (Expansion) Type Codes
+   "294" {:transaction "CR" :level "Summary" :description "Total ATM Credits"}
+   "295" {:transaction "CR" :level "Detail" :description "ATM Credit"}
+   "301" {:transaction "CR" :level "Detail" :description "Commercial Deposit"}
+   "302" {:transaction "CR" :level "Summary" :description "Correspondent Bank Deposit"}
+   "303" {:transaction "CR" :level "Summary" :description "Total Wire Transfers In – FF"}
+   "304" {:transaction "CR" :level "Summary" :description "Total Wire Transfers In – CHF"}
+   "305" {:transaction "CR" :level "Summary" :description "Total Fed Funds Sold"}
+   "306" {:transaction "CR" :level "Detail" :description "Fed Funds Sold"}
+   "307" {:transaction "CR" :level "Summary" :description "Total Trust Credits"}
+   "308" {:transaction "CR" :level "Detail" :description "Trust Credit"}
+   "309" {:transaction "CR" :level "Summary" :description "Total Value - Dated Funds"}
+   "310" {:transaction "CR" :level "Summary" :description "Total Commercial Deposits"}
+   "315" {:transaction "CR" :level "Summary" :description "Total International Credits – FF"}
+   "316" {:transaction "CR" :level "Summary" :description "Total International Credits – CHF"}
+   "318" {:transaction "CR" :level "Summary" :description "Total Foreign Check Purchased"}
+   "319" {:transaction "CR" :level "Summary" :description "Late Deposit"}
+   "320" {:transaction "CR" :level "Summary" :description "Total Securities Sold – FF"}
+   "321" {:transaction "CR" :level "Summary" :description "Total Securities Sold – CHF"}
+   "324" {:transaction "CR" :level "Summary" :description "Total Securities Matured – FF"}
+   "325" {:transaction "CR" :level "Summary" :description "Total Securities Matured – CHF"}
+   "326" {:transaction "CR" :level "Summary" :description "Total Securities Interest"}
+   "327" {:transaction "CR" :level "Summary" :description "Total Securities Matured"}
+   "328" {:transaction "CR" :level "Summary" :description "Total Securities Interest – FF"}
+   "329" {:transaction "CR" :level "Summary" :description "Total Securities Interest – CHF"}
+   "330" {:transaction "CR" :level "Summary" :description "Total Escrow Credits"}
+   "331" {:transaction "CR" :level "Detail" :description "Individual Escrow Credit"}
+   "332" {:transaction "CR" :level "Summary" :description "Total Miscellaneous Securities Credits – FF"}
+   "336" {:transaction "CR" :level "Summary" :description "Total Miscellaneous Securities Credits – CHF"}
+   "338" {:transaction "CR" :level "Summary" :description "Total Securities Sold"}
+   "340" {:transaction "CR" :level "Summary" :description "Total Broker Deposits"}
+   "341" {:transaction "CR" :level "Summary" :description "Total Broker Deposits – FF"}
+   "342" {:transaction "CR" :level "Detail" :description "Broker Deposit"}
+   "343" {:transaction "CR" :level "Summary" :description "Total Broker Deposits – CHF"}
+   "344" {:transaction "CR" :level "Detail" :description "Individual Back Value Credit"}
+   "345" {:transaction "CR" :level "Detail" :description "Item in Brokers Deposit"}
+   "346" {:transaction "CR" :level "Detail" :description "Sweep Interest Income"}
+   "347" {:transaction "CR" :level "Detail" :description "Sweep Principal Sell"}
+   "348" {:transaction "CR" :level "Detail" :description "Futures Credit"}
+   "349" {:transaction "CR" :level "Detail" :description "Principal Payments Credit"}
+   "350" {:transaction "CR" :level "Summary" :description "Investment Sold"}
+   "351" {:transaction "CR" :level "Detail" :description "Individual Investment Sold"}
+   "352" {:transaction "CR" :level "Summary" :description "Total Cash Center Credits"}
+   "353" {:transaction "CR" :level "Detail" :description "Cash Center Credit"}
+   "354" {:transaction "CR" :level "Detail" :description "Interest Credit"}
+   "355" {:transaction "CR" :level "Summary" :description "Investment Interest"}
+   "356" {:transaction "CR" :level "Summary" :description "Total Credit Adjustment"}
+   "357" {:transaction "CR" :level "Detail" :description "Credit Adjustment"}
+   "358" {:transaction "CR" :level "Detail" :description "YTD Adjustment Credit"}
+   "359" {:transaction "CR" :level "Detail" :description "Interest Adjustment Credit"}
+   "360" {:transaction "CR" :level "Summary" :description "Total Credits Less Wire Transfer and Returned Checks"}
+   "361" {:transaction "CR" :level "Summary" :description "Grand Total Credits Less Grand Total Debits"}
+   
+   ;; Correspondent Bank and Federal Reserve – Related Type Codes
+   "362" {:transaction "CR" :level "Detail" :description "Correspondent Collection"}
+   "363" {:transaction "CR" :level "Detail" :description "Correspondent Collection Adjustment"}
+   "364" {:transaction "CR" :level "Detail" :description "Loan Participation"}
+   "366" {:transaction "CR" :level "Detail" :description "Currency and Coin Deposited"}
+   "367" {:transaction "CR" :level "Detail" :description "Food Stamp Letter"}
+   "368" {:transaction "CR" :level "Detail" :description "Food Stamp Adjustment"}
+   "369" {:transaction "CR" :level "Detail" :description "Clearing Settlement Credit"}
+   "370" {:transaction "CR" :level "Summary" :description "Total Back Value Credits"}
+   "372" {:transaction "CR" :level "Detail" :description "Back Value Adjustment"}
+   "373" {:transaction "CR" :level "Detail" :description "Customer Payroll"}
+   "374" {:transaction "CR" :level "Detail" :description "FRB Statement Recap"}
+   "376" {:transaction "CR" :level "Detail" :description "Savings Bond Letter or Adjustment"}
+   "377" {:transaction "CR" :level "Detail" :description "Treasury Tax and Loan Credit"}
+   "378" {:transaction "CR" :level "Detail" :description "Transfer of Treasury Credit"}
+   "379" {:transaction "CR" :level "Detail" :description "FRB Government Checks Cash Letter Credit"}
+   "381" {:transaction "CR" :level "Detail" :description "FRB Government Check Adjustment"}
+   "382" {:transaction "CR" :level "Detail" :description "FRB Postal Money Order Credit"}
+   "383" {:transaction "CR" :level "Detail" :description "FRB Postal Money Order Adjustment"}
+   "384" {:transaction "CR" :level "Detail" :description "FRB Cash Letter Auto Charge Credit"}
+   "385" {:transaction "CR" :level "Summary" :description "Total Universal Credits"}
+   "386" {:transaction "CR" :level "Detail" :description "FRB Cash Letter Auto Charge Adjustment"}
+   "387" {:transaction "CR" :level "Detail" :description "FRB Fine-Sort Cash Letter Credit"}
+   "388" {:transaction "CR" :level "Detail" :description "FRB Fine-Sort Adjustment"}
+   "389" {:transaction "CR" :level "Summary" :description "Total Freight Payment Credits"}
+   
+   ;; Miscellaneous Type Codes
+   "390" {:transaction "CR" :level "Summary" :description "Total Miscellaneous Credits"}
+   "391" {:transaction "CR" :level "Detail" :description "Universal Credit"}
+   "392" {:transaction "CR" :level "Detail" :description "Freight Payment Credit"}
+   "393" {:transaction "CR" :level "Detail" :description "Itemized Credit Over $10,000"}
+   "394" {:transaction "CR" :level "Detail" :description "Cumulative** Credits"}
+   "395" {:transaction "CR" :level "Detail" :description "Check Reversal"}
+   "397" {:transaction "CR" :level "Detail" :description "Float Adjustment"}
+   "398" {:transaction "CR" :level "Detail" :description "Miscellaneous Fee Refund"}
+   "399" {:transaction "CR" :level "Detail" :description "Miscellaneous Credit"}
+   
+   ;; Summary and Detail Debits
+   "400" {:transaction "DB" :level "Summary" :description "Total Debits"}
+   "401" {:transaction "DB" :level "Summary" :description "Total Debit Amount MTD"}
+   "403" {:transaction "DB" :level "Summary" :description "Today’s Total Debits"}
+   "405" {:transaction "DB" :level "Summary" :description "Total Debit Less Wire Transfers and Charge- Backs"}
+   "406" {:transaction "DB" :level "Summary" :description "Debits not Detailed"}
+   "408" {:transaction "DB" :level "Detail" :description "Float Adjustment"}
+   "409" {:transaction "DB" :level "Detail" :description "Debit (Any Type)"}
+   "410" {:transaction "DB" :level "Summary" :description "Total YTD Adjustment"}
+   "412" {:transaction "DB" :level "Summary" :description "Total Debits (Excluding Returned Items)"}
+   
+   ;; Lockbox Related – Type Codes
+   "415" {:transaction "DB" :level "Detail" :description "Lockbox Debit"}
+   "416" {:transaction "DB" :level "Summary" :description "Total Lockbox Debits"}
+   "420" {:transaction "DB" :level "Summary" :description "EDI Transaction Debits"}
+   "421" {:transaction "DB" :level "Detail" :description "EDI Transaction Debit"}
+   "422" {:transaction "DB" :level "Detail" :description "EDIBANX Settlement Debit"}
+   "423" {:transaction "DB" :level "Detail" :description "EDIBANX Return Item Debit"}
+   
+   ;; Payable-Through Draft – Related Type Codes
+   "430" {:transaction "DB" :level "Summary" :description "Total Payable–Through Drafts"}
+   "435" {:transaction "DB" :level "Detail" :description "Payable–Through Draft"}
+   
+   ;; ACH – Related Type Codes
+   "445" {:transaction "DB" :level "Detail" :description "ACH Concentration Debit"}
+   "446" {:transaction "DB" :level "Summary" :description "Total ACH Disbursement Funding Debits"}
+   "447" {:transaction "DB" :level "Detail" :description "ACH Disbursement Funding Debit"}
+   "450" {:transaction "DB" :level "Summary" :description "Total ACH Debits"}
+   "451" {:transaction "DB" :level "Detail" :description "ACH Debit Received"}
+   "452" {:transaction "DB" :level "Detail" :description "Item in ACH Disbursement or Debit"}
+   "455" {:transaction "DB" :level "Detail" :description "Preauthorized ACH Debit"}
+   "462" {:transaction "DB" :level "Detail" :description "Account Holder Initiated ACH Debit"}
+   "463" {:transaction "DB" :level "Summary" :description "Corporate Trade Payment Debits"}
+   "464" {:transaction "DB" :level "Detail" :description "Corporate Trade Payment Debit"}
+   "465" {:transaction "DB" :level "Summary" :description "Corporate Trade Payment Settlement"}
+   "466" {:transaction "DB" :level "Detail" :description "ACH Settlement"}
+   "467" {:transaction "DB" :level "Summary" :description "ACH Settlement Debits"}
+   "468" {:transaction "DB" :level "Detail" :description "ACH Return Item or Adjustment Settlement"}
+   "469" {:transaction "DB" :level "Detail" :description "Miscellaneous ACH Debit"}
+   
+   ;; Checks Paid – Related Type Codes
+   "470" {:transaction "DB" :level "Summary" :description "Total Check Paid"}
+   "471" {:transaction "DB" :level "Summary" :description "Total Check Paid – Cumulative MTD"}
+   "472" {:transaction "DB" :level "Detail" :description "Cumulative** Checks Paid"}
+   "474" {:transaction "DB" :level "Detail" :description "Certified Check Debit"}
+   "475" {:transaction "DB" :level "Detail" :description "Check Paid"}
+   "476" {:transaction "DB" :level "Detail" :description "Federal Reserve Bank Letter Debit"}
+   "477" {:transaction "DB" :level "Detail" :description "Bank Originated Debit"}
+   "478" {:transaction "DB" :level "Summary" :description "List Post Debits"}
+   "479" {:transaction "DB" :level "Detail" :description "List Post Debit"}
+   "480" {:transaction "DB" :level "Summary" :description "Total Loan Payments"}
+   "481" {:transaction "DB" :level "Detail" :description "Individual Loan Payment"}
+   "482" {:transaction "DB" :level "Summary" :description "Total Bank-Originated Debits"}
+   "484" {:transaction "DB" :level "Detail" :description "Draft"}
+   "485" {:transaction "DB" :level "Detail" :description "DTC Debit"}
+   "486" {:transaction "DB" :level "Summary" :description "Total Cash Letter Debits"}
+   "487" {:transaction "DB" :level "Detail" :description "Cash Letter Debit"}
+   "489" {:transaction "DB" :level "Detail" :description "Cash Letter Adjustment"}
+   
+   ;; Money Transfer – Related Type Codes
+   "490" {:transaction "DB" :level "Summary" :description "Total Outgoing Money Transfers"}
+   "491" {:transaction "DB" :level "Detail" :description "Individual Outgoing Internal Money Transfer"}
+   "493" {:transaction "DB" :level "Detail" :description "Customer Terminal Initiated Money Transfer"}
+   "495" {:transaction "DB" :level "Detail" :description "Outgoing Money Transfer"}
+   "496" {:transaction "DB" :level "Detail" :description "Money Transfer Adjustment"}
+   "498" {:transaction "DB" :level "Detail" :description "Compensation"}
+   "500" {:transaction "DB" :level "Summary" :description "Total Automatic Transfer Debits"}
+   "501" {:transaction "DB" :level "Detail" :description "Individual Automatic Transfer Debit"}
+   "502" {:transaction "DB" :level "Detail" :description "Bond Operations Debit"}
+   "505" {:transaction "DB" :level "Summary" :description "Total Book Transfer Debits"}
+   "506" {:transaction "DB" :level "Detail" :description "Book Transfer Debit"}
+   "507" {:transaction "DB" :level "Summary" :description "Total International Money Transfer Debits"}
+   "508" {:transaction "DB" :level "Detail" :description "Individual International Money Transfer Debits"}
+   "510" {:transaction "DB" :level "Summary" :description "Total International Debits"}
+   "512" {:transaction "DB" :level "Detail" :description "Letter of Credit Debit"}
+   "513" {:transaction "DB" :level "Detail" :description "Letter of Credit"}
+   "514" {:transaction "DB" :level "Detail" :description "Foreign Exchange Debit"}
+   "515" {:transaction "DB" :level "Summary" :description "Total Letters of Credit"}
+   "516" {:transaction "DB" :level "Detail" :description "Foreign Remittance Debit"}
+   "518" {:transaction "DB" :level "Detail" :description "Foreign Collection Debit"}
+   "522" {:transaction "DB" :level "Detail" :description "Foreign Checks Paid"}
+   "524" {:transaction "DB" :level "Detail" :description "Commission"}
+   "526" {:transaction "DB" :level "Detail" :description "International Money Market Trading"}
+   "527" {:transaction "DB" :level "Detail" :description "Standing Order"}
+   "529" {:transaction "DB" :level "Detail" :description "Miscellaneous International Debit"}
+   
+   ;; Security – Related Type Codes
+   "530" {:transaction "DB" :level "Summary" :description "Total Security Debits"}
+   "531" {:transaction "DB" :level "Detail" :description "Securities Purchased"}
+   "532" {:transaction "DB" :level "Summary" :description "Total Amount of Securities Purchased"}
+   "533" {:transaction "DB" :level "Detail" :description "Security Collection Debit"}
+   "534" {:transaction "DB" :level "Summary" :description "Total Miscellaneous Securities DB – FF"}
+   "535" {:transaction "DB" :level "Detail" :description "Purchase of Equity Securities"}
+   "536" {:transaction "DB" :level "Summary" :description "Total Miscellaneous Securities Debit – CHF"}
+   "537" {:transaction "DB" :level "Summary" :description "Total Collection Debit"}
+   "538" {:transaction "DB" :level "Detail" :description "Matured Repurchase Order"}
+   "539" {:transaction "DB" :level "Summary" :description "Total Bankers’ Acceptances Debit"}
+   "540" {:transaction "DB" :level "Detail" :description "Coupon Collection Debit"}
+   "541" {:transaction "DB" :level "Detail" :description "Bankers’ Acceptances"}
+   "542" {:transaction "DB" :level "Detail" :description "Purchase of Debt Securities"}
+   "543" {:transaction "DB" :level "Detail" :description "Domestic Collection"}
+   "544" {:transaction "DB" :level "Detail" :description "Interest/Matured Principal Payment"}
+   "546" {:transaction "DB" :level "Detail" :description "Commercial paper"}
+   "547" {:transaction "DB" :level "Detail" :description "Capital Change"}
+   "548" {:transaction "DB" :level "Detail" :description "Savings Bonds Sales Adjustment"}
+   "549" {:transaction "DB" :level "Detail" :description "Miscellaneous Security Debit"}
+   
+   ;; Deposited Items Returned – Related Type Codes
+   "550" {:transaction "DB" :level "Summary" :description "Total Deposited Items Returned"}
+   "551" {:transaction "DB" :level "Summary" :description "Total Credit Reversals"}
+   "552" {:transaction "DB" :level "Detail" :description "Credit Reversal"}
+   "554" {:transaction "DB" :level "Detail" :description "Posting Error Correction Debit"}
+   "555" {:transaction "DB" :level "Detail" :description "Deposited Item Returned"}
+   "556" {:transaction "DB" :level "Summary" :description "Total ACH Return Items"}
+   "557" {:transaction "DB" :level "Detail" :description "Individual ACH Return Item"}
+   "558" {:transaction "DB" :level "Detail" :description "ACH Reversal Debit"}
+   "560" {:transaction "DB" :level "Summary" :description "Total Rejected Debits"}
+   "561" {:transaction "DB" :level "Detail" :description "Individual Rejected Debit"}
+   "563" {:transaction "DB" :level "Detail" :description "Overdraft"}
+   "564" {:transaction "DB" :level "Detail" :description "Overdraft Fee"}
+   "566" {:transaction "DB" :level "Detail" :description "Return Item"}
+   "567" {:transaction "DB" :level "Detail" :description "Return Item Fee"}
+   "568" {:transaction "DB" :level "Detail" :description "Return Item Adjustment"}
+   
+   ;; ZBA and Disbursing – Related Type Codes
+   "570" {:transaction "DB" :level "Summary" :description "Total ZBA Debits"}
+   "574" {:transaction "DB" :level "Detail" :description "Cumulative ZBA Debits"}
+   "575" {:transaction "DB" :level "Detail" :description "ZBA Debit"}
+   "577" {:transaction "DB" :level "Detail" :description "ZBA Debit Transfer"}
+   "578" {:transaction "DB" :level "Detail" :description "ZBA Debit Adjustment"}
+   "580" {:transaction "DB" :level "Summary" :description "Total Controlled Disbursing Debits"}
+   "581" {:transaction "DB" :level "Detail" :description "Individual Controlled Disbursing Debit"}
+   "583" {:transaction "DB" :level "Summary" :description "Total Disbursing Checks Paid – Early Amount"}
+   "584" {:transaction "DB" :level "Summary" :description "Total Disbursing Checks Paid – Later Amount"}
+   "585" {:transaction "DB" :level "Summary" :description "Disbursing Funding Requirement"}
+   "586" {:transaction "DB" :level "Summary" :description "FRB Presentment Estimate (Fed Estimate)"}
+   "587" {:transaction "DB" :level "Summary" :description "Late Debits (After Notification)"}
+   "588" {:transaction "DB" :level "Summary" :description "Total Disbursing Checks Paid-Last Amount"}
+   
+   ;; Other (Expansion) Type Codes
+   "590" {:transaction "DB" :level "Summary" :description "Total DTC Debits"}
+   "594" {:transaction "DB" :level "Summary" :description "Total ATM Debits"}
+   "595" {:transaction "DB" :level "Detail" :description "ATM Debit"}
+   "596" {:transaction "DB" :level "Summary" :description "Total APR Debits"}
+   "597" {:transaction "DB" :level "Detail" :description "ARP Debit"}
+   "601" {:transaction "DB" :level "Summary" :description "Estimated Total Disbursement"}
+   "602" {:transaction "DB" :level "Summary" :description "Adjusted Total Disbursement"}
+   "610" {:transaction "DB" :level "Summary" :description "Total Funds Required"}
+   "611" {:transaction "DB" :level "Summary" :description "Total Wire Transfers Out- CHF"}
+   "612" {:transaction "DB" :level "Summary" :description "Total Wire Transfers Out – FF"}
+   "613" {:transaction "DB" :level "Summary" :description "Total International Debit – CHF"}
+   "614" {:transaction "DB" :level "Summary" :description "Total International Debit – FF"}
+   "615" {:transaction "DB" :level "Summary" :description "Total Federal Reserve Bank – Commercial Bank Debit"}
+   "616" {:transaction "DB" :level "Detail" :description "Federal Reserve Bank – Commercial Bank Debit"}
+   "617" {:transaction "DB" :level "Summary" :description "Total Securities Purchased – CHF"}
+   "618" {:transaction "DB" :level "Summary" :description "Total Securities Purchased – FF"}
+   "621" {:transaction "DB" :level "Summary" :description "Total Broker Debits – CHF"}
+   "622" {:transaction "DB" :level "Detail" :description "Broker Debit"}
+   "623" {:transaction "DB" :level "Summary" :description "Total Broker Debits – FF"}
+   "625" {:transaction "DB" :level "Summary" :description "Total Broker Debits"}
+   "626" {:transaction "DB" :level "Summary" :description "Total Fed Funds Purchased"}
+   "627" {:transaction "DB" :level "Detail" :description "Fed Funds Purchased"}
+   "628" {:transaction "DB" :level "Summary" :description "Total Cash Center Debits"}
+   "629" {:transaction "DB" :level "Detail" :description "Cash Center Debit"}
+   "630" {:transaction "DB" :level "Summary" :description "Total Debit Adjustments"}
+   "631" {:transaction "DB" :level "Detail" :description "Debit Adjustment"}
+   "632" {:transaction "DB" :level "Summary" :description "Total Trust Debits"}
+   "633" {:transaction "DB" :level "Detail" :description "Trust Debit"}
+   "634" {:transaction "DB" :level "Detail" :description "YTD Adjustment Debit"}
+   "640" {:transaction "DB" :level "Summary" :description "Total Escrow Debits"}
+   "641" {:transaction "DB" :level "Detail" :description "Individual Escrow Debit"}
+   "644" {:transaction "DB" :level "Detail" :description "Individual Back Value Debit"}
+   "646" {:transaction "DB" :level "Summary" :description "Transfer Calculation Debit"}
+   "650" {:transaction "DB" :level "Summary" :description "Investments Purchased"}
+   "651" {:transaction "DB" :level "Detail" :description "Individual Investment purchased"}
+   "654" {:transaction "DB" :level "Detail" :description "Interest Debit"}
+   "655" {:transaction "DB" :level "Summary" :description "Total Investment Interest Debits"}
+   "656" {:transaction "DB" :level "Detail" :description "Sweep Principal Buy"}
+   "657" {:transaction "DB" :level "Detail" :description "Futures Debit"}
+   "658" {:transaction "DB" :level "Detail" :description "Principal Payments Debit"}
+   "659" {:transaction "DB" :level "Detail" :description "Interest Adjustment Debit"}
+   
+   ;; Correspondent Bank and Federal Reserve – Related Type Codes
+   "661" {:transaction "DB" :level "Detail" :description "Account Analysis Fee"}
+   "662" {:transaction "DB" :level "Detail" :description "Correspondent Collection Debit"}
+   "663" {:transaction "DB" :level "Detail" :description "Correspondent Collection Adjustment"}
+   "664" {:transaction "DB" :level "Detail" :description "Loan Participation"}
+   "665" {:transaction "DB" :level "Summary" :description "Intercept Debits"}
+   "666" {:transaction "DB" :level "Detail" :description "Currency and Coin Shipped"}
+   "667" {:transaction "DB" :level "Detail" :description "Food Stamp Letter"}
+   "668" {:transaction "DB" :level "Detail" :description "Food Stamp Adjustment"}
+   "669" {:transaction "DB" :level "Detail" :description "Clearing Settlement Debit"}
+   "670" {:transaction "DB" :level "Summary" :description "Total Back Value Debits"}
+   "672" {:transaction "DB" :level "Detail" :description "Back Value Adjustment"}
+   "673" {:transaction "DB" :level "Detail" :description "Customer Payroll"}
+   "674" {:transaction "DB" :level "Detail" :description "FRB Statement Recap"}
+   "676" {:transaction "DB" :level "Detail" :description "Savings Bond Letter or Adjustment"}
+   "677" {:transaction "DB" :level "Detail" :description "Treasury Tax and Loan Debit"}
+   "678" {:transaction "DB" :level "Detail" :description "Transfer of Treasury Debit"}
+   "679" {:transaction "DB" :level "Detail" :description "FRB Government Checks Cash Letter Debit"}
+   "681" {:transaction "DB" :level "Detail" :description "FRB Government Check Adjustment"}
+   "682" {:transaction "DB" :level "Detail" :description "FRB Postal Money Order Debit"}
+   "683" {:transaction "DB" :level "Detail" :description "FRB Postal Money Order Adjustment"}
+   "684" {:transaction "DB" :level "Detail" :description "FRB Cash Letter Auto Charge Debit"}
+   "685" {:transaction "DB" :level "Summary" :description "Total Universal Debits"}
+   "686" {:transaction "DB" :level "Detail" :description "FRB Cash Letter Auto Charge Adjustment"}
+   "687" {:transaction "DB" :level "Detail" :description "FRB Fine-Sort Cash Letter Debit"}
+   "688" {:transaction "DB" :level "Detail" :description "FRB Fine-Sort Adjustment"}
+   "689" {:transaction "DB" :level "Summary" :description "FRB Freight Payment Debits"}
+   "690" {:transaction "DB" :level "Summary" :description "Total Miscellaneous Debits"}
+   "691" {:transaction "DB" :level "Detail" :description "Universal Debit"}
+   "692" {:transaction "DB" :level "Detail" :description "Freight Payment Debit"}
+   "693" {:transaction "DB" :level "Detail" :description "Itemized Debit Over $10,000"}
+   "694" {:transaction "DB" :level "Detail" :description "Deposit Reversal"}
+   "695" {:transaction "DB" :level "Detail" :description "Deposit Correction Debit"}
+   "696" {:transaction "DB" :level "Detail" :description "Regular Collection Debit"}
+   "697" {:transaction "DB" :level "Detail" :description "Cumulative** Debits"}
+   "698" {:transaction "DB" :level "Detail" :description "Miscellaneous Fees"}
+   "699" {:transaction "DB" :level "Detail" :description "Miscellaneous Debit"}
+   
+   ;; Loan Transactions – Related Type Codes
+   "701" {:transaction "NA" :level "Status" :description "Principal Loan Balance"}
+   "703" {:transaction "NA" :level "Status" :description "Available Commitment Amount"}
+   "705" {:transaction "NA" :level "Status" :description "Payment Amount Due"}
+   "707" {:transaction "NA" :level "Status" :description "Principal Amount Past Due"}
+   "709" {:transaction "NA" :level "Status" :description "Interest Amount Past Due"}
+   "720" {:transaction "CR" :level "Summary" :description "Total Loan Payment"}
+   "721" {:transaction "CR" :level "Detail" :description "Amount Applied to Interest"}
+   "722" {:transaction "CR" :level "Detail" :description "Amount Applied to Principal"}
+   "723" {:transaction "CR" :level "Detail" :description "Amount Applied to Escrow"}
+   "724" {:transaction "CR" :level "Detail" :description "Amount Applied to Late Charges"}
+   "725" {:transaction "CR" :level "Detail" :description "Amount Applied to Buydown"}
+   "726" {:transaction "CR" :level "Detail" :description "Amount Applied to Misc. Fees"}
+   "727" {:transaction "CR" :level "Detail" :description "Amount Applied to Deferred Interest Detail"}
+   "728" {:transaction "CR" :level "Detail" :description "Amount Applied to Service Charge"}
+   "760" {:transaction "DB" :level "Summary" :description "Loan Disbursement Non-Monetary Information"}
+   
+   ;; Non-Monetary Information
+   "890" {:transaction "NA" :level "Detail" :description "Contains Non-monetary Information"}
+   })
