@@ -12,7 +12,7 @@
     (str/replace s #"\/$" "")))
 
 (defn lookup-type-code [type-code]
-  (get type-codes type-code))
+  (assoc (get type-codes type-code) :code type-code))
 
 (defprotocol BaiFormat
   "A clojure protocol for describing a BAI record format."
