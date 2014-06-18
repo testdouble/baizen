@@ -1,5 +1,5 @@
 (ns baizen.formats.s-transaction-detail
-  (:require [baizen.formats :refer [BaiFormat index-of drop-slash]]))
+  (:require [baizen.formats :refer [BaiFormat index-of drop-slash lookup-type-code]]))
 
 (defrecord STransactionDetail [line]
   BaiFormat
@@ -9,4 +9,6 @@
      :bank-reference-number :customer-reference-number :text])
 
   (prepare [this line]
-    (update-in line [(index-of this :customer-reference-number)] drop-slash)))
+    (-> line
+        (update-in [(index-of this :customer-reference-number)] drop-slash)
+        (update-in [(index-of this :type-code)] lookup-type-code))))

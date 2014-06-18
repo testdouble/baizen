@@ -1,5 +1,6 @@
 (ns baizen.formats
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [baizen.type-codes :refer [type-codes]]))
 
 (defn ?assoc
   "Safe assoc. Only assoc if the value in the map is nil or the key does not exist."
@@ -9,6 +10,9 @@
 (defn drop-slash [s]
   (when s
     (str/replace s #"\/$" "")))
+
+(defn lookup-type-code [type-code]
+  (get type-codes type-code))
 
 (defprotocol BaiFormat
   "A clojure protocol for describing a BAI record format."

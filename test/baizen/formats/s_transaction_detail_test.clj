@@ -9,7 +9,8 @@
     (let [transaction-detail-line ["16" "115" "10000000" "S" "5000000" "4000000" "1000000" "DD1620" "DASD1234" "DEALER PAYMENTS"]
           transaction-detail (dissect (STransactionDetail. transaction-detail-line))]
       (is (= "16" (:record-code transaction-detail)))
-      (is (= "115" (:type-code transaction-detail)))
+      (is (= {:transaction "CR" :level "Detail" :description "Lockbox Deposit"}
+             (:type-code transaction-detail)))
       (is (= "10000000" (:amount transaction-detail)))
       (is (= "S" (:funds-type transaction-detail)))
       (is (= "5000000" (:immediate-availability-amount transaction-detail)))

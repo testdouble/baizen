@@ -22,7 +22,8 @@
         (is (= "03" (:record-code account-identifier)))
         (is (= "0975312468" (:customer-account-number account-identifier)))
         (is (= "GBP" (:currency-code account-identifier)))
-        (is (= "010" (:type-code summary)))
+        (is (= {:transaction "NA" :level "Status" :description "Opening Ledger"}
+               (:type-code summary)))
         (is (= "500000" (:amount summary)))
         (is (= "1" (:item-count summary)))
         (is (= "0" (:funds-type summary)))))
@@ -36,17 +37,20 @@
         (is (= "0975312468" (:customer-account-number account-identifier)))
         (is (= "GBP" (:currency-code account-identifier)))
 
-        (is (= "010" (:type-code first-summary)))
+        (is (= {:transaction "NA" :level "Status" :description "Opening Ledger"}
+               (:type-code first-summary)))
         (is (= "500000" (:amount first-summary)))
         (is (= "1" (:item-count first-summary)))
         (is (= "0" (:funds-type first-summary)))
 
-        (is (= "056" (:type-code second-summary)))
+        (is (= {:transaction "NA" :level "Status" :description "Loan Balance"}
+               (:type-code second-summary)))
         (is (= "2000" (:amount second-summary)))
         (is (= "" (:item-count second-summary)))
         (is (= "0" (:funds-type second-summary)))
 
-        (is (= "057" (:type-code third-summary)))
+        (is (= {:transaction "NA" :level "Status" :description "Total Investment Position"}
+               (:type-code third-summary)))
         (is (= "4000" (:amount third-summary)))
         (is (= "" (:item-count third-summary)))
         (is (= "2" (:funds-type third-summary))))))
