@@ -16,7 +16,7 @@ More documentation can be found on the [wiki](https://github.com/testdouble/baiz
 [Leiningen](https://github.com/technomancy/leiningen/):
 
 ```
-[baizen "0.4.0"]
+[baizen "0.5.0"]
 ```
 
 [Maven](http://maven.apache.org/):
@@ -25,7 +25,7 @@ More documentation can be found on the [wiki](https://github.com/testdouble/baiz
 <dependency>
   <groupId>baizen</groupId>
   <artifactId>baizen</artifactId>
-  <version>0.4.0</version>
+  <version>0.5.0</version>
 </dependency>
 ```
 
@@ -63,11 +63,11 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
       ({:funds-type "",
         :item-count "",
         :amount "+00000004060801",
-        :type-code "015"}
+        :type-code {:code "015" :transaction "NA" :level "Status" :description "Closing Ledger"}}
        {:funds-type "",
         :item-count "",
         :amount "+00000003836014",
-        :type-code "045"}),
+        :type-code {:code "045" :transaction "NA" :level "Status" :description "Closing Available"}}),
       :currency-code "",
       :customer-account-number "0101999999",
       :record-code "03"},
@@ -76,7 +76,7 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
        :bank-reference-number "00087829876",
        :funds-type "Z",
        :amount "000000000346685",
-       :type-code "175",
+       :type-code {:code "175" :transaction "CR" :level "Detail" :description "Check Deposit Package"},
        :record-code "16"}),
      :account-trailer
      {:number-of-records "23",

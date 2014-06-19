@@ -1,3 +1,8 @@
+=== v0.5.0 / 2014-06-18
+
+* Enhancements
+  * Expose BAI Type Codes as hash-map
+
 === v0.4.0 / 2014-04-14
 
 * Enhancements
@@ -7,8 +12,6 @@
 
 * Enhancements
   * Nest record structures to help get accounts and transactions from parents.
-
-* Bug Fixes
 
 === v0.2.0 / 2014-01-29
 
@@ -23,8 +26,6 @@
     previous record
   * Account Identifier Records (:type-code 03) now have combined
     :summaries field
-
-* Bug Fixes
 
 === v0.1.0 / 2014-01-29
 
