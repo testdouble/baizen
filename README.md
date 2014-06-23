@@ -63,11 +63,19 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
       ({:funds-type "",
         :item-count "",
         :amount "+00000004060801",
-        :type-code {:code "015" :transaction "NA" :level "Status" :description "Closing Ledger"}}
+        :type-code
+        {:description "Closing Ledger",
+         :transaction "NA",
+         :level "Status",
+         :code "015"}}
        {:funds-type "",
         :item-count "",
         :amount "+00000003836014",
-        :type-code {:code "045" :transaction "NA" :level "Status" :description "Closing Available"}}),
+        :type-code
+        {:description "Closing Available",
+         :transaction "NA",
+         :level "Status",
+         :code "045"}}),
       :currency-code "",
       :customer-account-number "0101999999",
       :record-code "03"},
@@ -76,7 +84,11 @@ user=> (baizen/parse "test-resources/BAI-File-From-Bank-Simple.bai")
        :bank-reference-number "00087829876",
        :funds-type "Z",
        :amount "000000000346685",
-       :type-code {:code "175" :transaction "CR" :level "Detail" :description "Check Deposit Package"},
+       :type-code
+       {:description "Check Deposit Package",
+        :transaction "CR",
+        :level "Detail",
+        :code "175"},
        :record-code "16"}),
      :account-trailer
      {:number-of-records "23",
