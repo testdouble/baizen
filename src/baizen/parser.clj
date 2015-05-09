@@ -32,7 +32,7 @@
      acc
      (let [header-line (first lines)
            [content-lines [trailer-line & remaining-lines]]
-            (split-with #(not (= (first %) trailer-record-code)) (rest lines))]
+           (split-with #(not= (first %) trailer-record-code) (rest lines))]
        (recur trailer-record-code
               remaining-lines
               record-group-parser
@@ -48,7 +48,7 @@
        :account-trailer (dissect (AccountTrailer. trailer-line))})))
 
 (defn- take-all-but-file-trailer [lines]
-  (take-while #(not (= (first %) "99")) lines))
+  (take-while #(not= (first %) "99") lines))
 
 (defn parse-groups [lines]
   (let [file-lines (take-all-but-file-trailer lines)]
