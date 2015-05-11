@@ -16,7 +16,7 @@
       (is (= ["16" "475" "2197500" "" "" "00000099999" "OTHER REFERENCE:FOO"]
              new-line))))
 
-  #_(testing "continuation line with a new field"
+  (testing "multiple continuation lines with a new field"
     (let [[new-line] (preprocess [["16" "475" "2197500" "" "" "00000099999" "/                                                  "]
                                   ["88" "OTHER REFERENCE:FOO/                                              "]
                                   ["88" "CHECK/                                                                       "]])]

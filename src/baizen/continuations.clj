@@ -5,15 +5,35 @@
   "butlast for Vectors"
   [v] (subvec v 0 (dec (count v))))
 
+(defn- only-numbers? [s]
+  (and (not (empty? s))
+       (re-matches #"[0-9]*" s)))
+
+(defn- combine-with-new-field [acc previous-line current-line]
+  (conj (vbutlast acc) (apply conj previous-line current-line)))
+
+(defn- drop-empty-field-and-combine [acc previous-line current-line]
+  (conj (vbutlast acc) (apply conj
+                              (vbutlast previous-line)
+                              (str (last previous-line) (last current-line))
+                              (rest current-line))))
+
+(defn- space-seperate-combining-field [acc previous-line current-line]
+  (conj (vbutlast acc) (apply conj
+                              (vbutlast previous-line)
+                              (str (last previous-line) " " (last current-line))
+                              (rest current-line))))
+
 (defn combine-continuations
   "reducer which combines current 88 line with previous line or leaves the line intact"
   [acc columns]
   (if (= "88" (first columns))
-    (let [prev-line (conj (vbutlast (last acc)) (drop-slash (drop-trailing-whitespace (last (last acc)))))
+    (let [previous-line (conj (vbutlast (last acc)) (drop-slash (drop-trailing-whitespace (last (last acc)))))
           line (rest columns)]
-      (if (empty? (last prev-line))
-        (conj (vbutlast acc) (apply conj (vbutlast prev-line) line))
-        (conj (vbutlast acc) (apply conj prev-line line))))
+      (cond
+        (only-numbers? (last previous-line)) (combine-with-new-field acc previous-line line)
+        (empty? (last previous-line)) (drop-empty-field-and-combine acc previous-line line)
+        :else (space-seperate-combining-field acc previous-line line)))
     (conj acc columns)))
 
 (defn preprocess
