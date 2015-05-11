@@ -11,6 +11,10 @@
   (when s
     (str/replace s #"\/$" "")))
 
+(defn drop-trailing-whitespace [s]
+  (when s
+    (str/replace s #"\s*$" "")))
+
 (defn lookup-type-code [type-code]
   (assoc (get type-codes type-code) :code type-code))
 

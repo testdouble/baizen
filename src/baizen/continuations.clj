@@ -1,5 +1,5 @@
 (ns baizen.continuations
-  (:require [baizen.formats :refer [drop-slash]]))
+  (:require [baizen.formats :refer [drop-slash drop-trailing-whitespace]]))
 
 (defn- vbutlast
   "butlast for Vectors"
@@ -9,9 +9,11 @@
   "reducer which combines current 88 line with previous line or leaves the line intact"
   [acc columns]
   (if (= "88" (first columns))
-    (let [prev-line (conj (vbutlast (last acc)) (drop-slash (last (last acc))))
+    (let [prev-line (conj (vbutlast (last acc)) (drop-slash (drop-trailing-whitespace (last (last acc)))))
           line (rest columns)]
-      (conj (vbutlast acc) (apply conj prev-line line)))
+      (if (empty? (last prev-line))
+        (conj (vbutlast acc) (apply conj (vbutlast prev-line) line))
+        (conj (vbutlast acc) (apply conj prev-line line))))
     (conj acc columns)))
 
 (defn preprocess
