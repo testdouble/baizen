@@ -111,7 +111,7 @@ from your project
 ```
 (ns my.domain.core
   (:require [baizen.core :as :baizen]))
-  
+
 (defn parse-it [filename]
   (baizen/parse filename))
 ```
