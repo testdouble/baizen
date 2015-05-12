@@ -16,7 +16,7 @@ More documentation can be found on the [wiki](https://github.com/testdouble/baiz
 [Leiningen](https://github.com/technomancy/leiningen/):
 
 ```
-[baizen "0.5.0"]
+[baizen "0.5.1"]
 ```
 
 [Maven](http://maven.apache.org/):
@@ -25,7 +25,7 @@ More documentation can be found on the [wiki](https://github.com/testdouble/baiz
 <dependency>
   <groupId>baizen</groupId>
   <artifactId>baizen</artifactId>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
 </dependency>
 ```
 
