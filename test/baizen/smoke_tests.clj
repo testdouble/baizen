@@ -1,9 +1,10 @@
 (ns baizen.smoke-tests
   (:require [clojure.test :refer :all]
+            [clojure.java.io :as io]
             [baizen.core :refer :all]))
 
-(def test-file "test-resources/BAI-File-From-Bank.bai")
-(def simple-test-file "test-resources/BAI-File-From-Bank-Simple.bai")
+#_(def test-file (io/reader (io/resource "BAI-File-From-Bank.bai")))
+(def simple-test-file (io/reader (io/resource "BAI-File-From-Bank-Simple.bai")))
 
 (deftest parse-test
   (testing "smoke tests -- transactions"
