@@ -15,7 +15,7 @@
 
 (defmethod parse
   java.io.Reader
-  [reader]
+  [^java.io.Reader reader]
   (with-open [rdr reader]
     (let [lines (csv/read-csv rdr)
           preprocessed (continuations/preprocess lines)

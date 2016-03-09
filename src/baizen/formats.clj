@@ -20,7 +20,7 @@
 
 (defprotocol BaiFormat
   "A clojure protocol for describing a BAI record format."
-  (fields [f])
+  (^java.util.List fields [f])
   (prepare [f line]))
 
 (defn index-of [this key]
